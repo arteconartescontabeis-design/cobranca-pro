@@ -6,6 +6,8 @@ App de cobrança da **Artecon** (escritório contábil). Tudo em português.
 - `index.html` — o app inteiro (HTML + CSS + JS, ~10,6 mil linhas). Supabase JS (anon key no cliente, protegido por RLS/RPC), SheetJS, e-mail pela Edge Function `mail-proxy`, fila de WhatsApp.
 - Versão atual no rodapé/cabeçalho e na tabela "Versões" (`<tr><td><b>vX.Y.Z</b>…`). **Toda mudança ganha uma linha nova no topo dessa tabela** e o número de versão é atualizado nos dois rótulos (`opacity:.7;">vX` e `vX · data`). Comentários de código marcam a versão (`// v2.11.1: …`) e funções novas usam prefixo da versão (`v2111…`).
 - Supabase: projeto `yeujqjtjqtegsnzwwazb`, tabelas `cob_*` (multi-tenant por `tenant_id`, RLS em todas). Mudanças de banco vão como `migration_vX_Y_Z_*.sql` (rodadas pelo usuário).
+- Abas (trilho à esquerda): Painel, Rotina (passos 1–5), Conferir, **Relatórios** (envios de cobrança, recebimentos, boletos em aberto, gráficos), **Erros** (importações, falhas e diferenças Questor × app — `cardErros`/`navErros`), Clientes, Robô, Sistema. Telas novas entram em `ocultarTodosPaineis`, `V22_TELAS` e no trilho.
+- Status de parcela: `aberta`, `paga`, `baixa_manual` (só via RPC `cob_baixa_manual`), `renegociada` (substituída por novos boletos; só diretor — gatilho `cob__trava_baixa_manual`), `cancelada`.
 - `docs/robo/ciclo-do-robo.md` — o que o robô faz, passo a passo.
 - `docs/sicredi/` — material da Sicredi (cartilha, coleção Postman sem credenciais, resumo da API).
 - `docs/auditoria-2026-10-06.md` — varredura de erros/segurança e pendências.
