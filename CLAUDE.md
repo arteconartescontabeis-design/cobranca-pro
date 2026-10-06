@@ -11,6 +11,7 @@ App de cobrança da **Artecon** (escritório contábil). Tudo em português.
 - `docs/robo/ciclo-do-robo.md` — o que o robô faz, passo a passo.
 - `docs/sicredi/` — material da Sicredi (cartilha, coleção Postman sem credenciais, resumo da API).
 - `docs/auditoria-2026-10-06.md` — varredura de erros/segurança e pendências.
+- **`docs/situacao-e-pendencias-2026-10-06.md` — onde paramos e lista do que falta (comece por aqui ao retomar).**
 
 ## Robô (fora deste repositório)
 - Servidor **ARTEDB01**, tarefa agendada "Artecon Robo Cobranca", Python 3.10, log em `C:\Artecon\Robo\logs`, pastas `C:\Artecon\Cobranca\{entrada,processados,relatorios}`.
