@@ -3,6 +3,8 @@
 **Data:** 06/10/2026 · **Atualizado em 08/10/2026** · **Versão no ar:** v2.13.0
 
 > **08/10/2026 — v2.13.0 publicada:** busca de títulos em Parcelas (título, cliente, valor, vencimento), lançamento manual de boleto, relatórios em abas (Boletos em aberto com busca e gráficos, Envios de cobrança, Recebimentos, Visão geral) e seletor de período no Painel (padrão até hoje).
+> **08/10/2026 (noite) — v2.14.0 publicada** (3 níveis de cobrança, lançamento pelo relatório do Questor, clientes suspensos, versão no Painel), com varredura e 4 correções antes do merge. **Textos dos avisos de suspensão (2º e 3º nível) aprovados pelo usuário.**
+> **Robô:** recebidos só `questor.py` v0.2.4 e `sicredi.py` v0.1.1 (antigos). Para corrigir a data do relatório de pendentes falta o `questor.py` v0.6.0 e o `robo_cobranca.py` v2.6.0 que rodam no ARTEDB01.
 > **Pendente:** a tabela de classificação de clientes (para ligar com o projeto Propostas) não chegou — reenviar.
 
 ---
