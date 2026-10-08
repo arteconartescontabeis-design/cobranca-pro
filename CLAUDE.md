@@ -11,6 +11,7 @@ App de cobrança da **Artecon** (escritório contábil). Tudo em português.
 - `docs/robo/ciclo-do-robo.md` — o que o robô faz, passo a passo.
 - `docs/sicredi/` — material da Sicredi (cartilha, coleção Postman sem credenciais, resumo da API).
 - `docs/auditoria-2026-10-06.md` — varredura de erros/segurança e pendências.
+- **`docs/situacao-e-pendencias-2026-10-06.md` — onde paramos e lista do que falta (comece por aqui ao retomar).**
 
 ## Robô (fora deste repositório)
 - Servidor **ARTEDB01**, tarefa agendada "Artecon Robo Cobranca", Python 3.10, log em `C:\Artecon\Robo\logs`, pastas `C:\Artecon\Cobranca\{entrada,processados,relatorios}`.
@@ -21,6 +22,7 @@ App de cobrança da **Artecon** (escritório contábil). Tudo em português.
 ## Sicredi (API Cobrança)
 - Base `https://api-parceiro.sicredi.com.br` (sandbox com `/sb`). OAuth2 password em `/auth/openapi/token` com `x-api-key` + `context: COBRANCA`; chamadas com `Authorization: Bearer`, `x-api-key`, `cooperativa`, `posto`.
 - No app já existe a configuração (`sicredi_ativo`, `sicredi_modo` paralelo/fonte única, `sicredi_hora`) — hoje **desligada**. Detalhes em `docs/sicredi/README.md`.
+- **Situação (06/10/2026): integração pausada** pelo usuário para análise. Decisões até aqui: escopo só remessa e retorno; fase 1 só consulta (liquidados/francesinha), sem instruções de alteração; enquanto isso o .CRT segue baixado manualmente no Internet Banking e salvo em `entrada`; nada de robô logando no site do banco. Logos 140×140 da App em `docs/sicredi/logo/`. Plano de segurança proposto (etapas A–E: travas no banco, 2 fatores, aprovação dupla, PIX/DMARC, política) aguardando decisão.
 - Credenciais da Sicredi **nunca** no `index.html` nem em commit: cofre do Windows do servidor ou Vault do Supabase.
 
 ## Regras

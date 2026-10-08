@@ -451,6 +451,16 @@ tr:hover td{background:rgba(255,255,255,.025)}
 .v23-duo .v23-enc .ev{font:600 clamp(22px,2.2vw,30px)/1 var(--display);color:#F7A928;white-space:nowrap}
 .v23-top .vo{font:600 16px/1 var(--display);color:var(--muted)}
 .v23-top .ve{font:600 15px/1 var(--display);color:#F7A928}
+.v2130-per{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.v2130-per .lb{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+.v2130-per select,.v2130-per input{width:auto;padding:7px 10px}
+.v2130-per .rot{font-size:12.5px;color:var(--muted)}
+.v2130-graf{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 16px}
+@media(max-width:900px){.v2130-graf{grid-template-columns:1fr}}
+.v2130-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 16px;border-bottom:1px solid var(--border);padding-bottom:0}
+.v2130-tabs button{background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);font:600 14px var(--body,inherit);padding:10px 14px;cursor:pointer;margin-bottom:-1px}
+.v2130-tabs button:hover{color:var(--text)}
+.v2130-tabs button.on{color:var(--text);border-bottom-color:#E3262E}
 .v23-meta{margin-bottom:10px;display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
 .v23-meta b{color:var(--text)}
 .v23-bar{display:flex;height:16px;border-radius:9px;overflow:hidden;gap:3px;margin-top:18px;background:rgba(255,255,255,.04)}
@@ -597,7 +607,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
     <div class="logo">
       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAADZCAMAAAA5QZbuAAAA/1BMVEViXFjk3+GwaGnw5CerPELcmp2YMDMMlNFweoGjmpvEWVzIfILkvcGIcTszeJfjw729wMG9vsAuhKt3ho54NziVjzmhm1zLgX5+fDy4e4Tr4UgAAAA6X2nDOUTEvz/7/v5gYGJYWVteXmCyKi3t5+jU1dfGyMmzMzSTlJaIiYthXmJ2dnhdYGO0tbfBLTGmp6ixR0rBMTPtycry1te0VVfIdXfNh4rSlZe5Zmjnt7jYpqjbtLXEZ2qSRkmWKCvlqqwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADADA5KAAAAQHRSTlP/////////////////////////////////////////////////////////////////////////////////////73leyQAAIslJREFUeNrtnYl6o7iygG2f2DdbT3dPz1nvEiTEZowhxnu8vP9bXW2AVowdk63RN2fOJI5Bql8qVZVKUu+pKx+q9DoRfBYgyFNK+5VBHY8aIL96QC5+2zjS2OuA2IHcAkcqLQPphw5w+h0QKxAUq0CSFqvhhRDASQekBkjfgc4YF44DOiBtrRJ+BAB9RzeJ2IF4FIg4QsKWpo4kBoBD74DYgfiSxoIYSNTSTM5wQNgBqQXyU5lCHBC3MXU45ejoRkg9kIQKajLh4sJziHP9uWNCcOCJCr9l3AGpB3KnjZDri+sHZLjHdIB0QGqBhCoQ6FzdbfOh8oYOiB1IpAJxHL8D8o5AYg0I7IC8IxCkjY8WXPUOyBlAdI11fVe9A9IciAcKc7dFV70D0hwIdtQlGh2QdwaC/UIIFSBRB+T9gKSgcNZajJ10QJoDwX4h+OUAGQjqgLwbEOwXgjAGUJJXvwPybkCwXwhSxVsHXgfkfYEo8ayrr6p3QBoDQXj6AEnaAfkoQMgCLvAT0G7spAPSGIg/HuMpwwftxk46II2B/CAo+h5o11XvgDQGgpUVcFAftOuqd0AaA8HTOXbMlZDv1V31DkhjIMRRv8W2FpRX1Tsg7wWEOOqRmk56dYF1QBoDuaVAnn4pQPqtAJng0uv1nHEHxAaEDA1iU6mZDt61gYzHmATngYF0ydY2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" alt="Artecon">
     </div>
-    <div class="sub">Mesa de Trabalho · Cobrança Pro <span style="font-size:11px;opacity:.7;">v2.12.0</span></div>
+    <div class="sub">Mesa de Trabalho · Cobrança Pro <span style="font-size:11px;opacity:.7;">v2.13.0</span></div>
     <div class="field">
       <label>E-mail</label>
       <input type="email" id="emailInput" placeholder="seu@email.com" autocomplete="email">
@@ -732,7 +742,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
       <div style="margin-top:6px;">
         <button class="sair" onclick="fazerLogout()"><span class="sair-label">Sair</span> ↩</button>
       </div>
-      <div style="margin-top:8px;font-size:10px;opacity:.5;letter-spacing:.04em;">v2.12.0 · 06/10/2026</div>
+      <div style="margin-top:8px;font-size:10px;opacity:.5;letter-spacing:.04em;">v2.13.0 · 08/10/2026</div>
     </div>
   </aside>
 
@@ -938,19 +948,32 @@ tr:hover td{background:rgba(255,255,255,.025)}
           </div>
           <button class="btn sm fechar-pagina" onclick="fecharParcelas()">✕ Fechar</button>
         </div>
-        <div class="toolbar">
-          <input type="text" id="parcelasBusca" placeholder="🔍 Buscar por cliente, documento ou nosso número..."
-            style="max-width:320px;" oninput="filtrarParcelas()">
+        <div class="toolbar" style="flex-wrap:wrap;">
+          <input type="text" id="parcelasBusca" placeholder="🔍 Título: documento ou nosso número"
+            style="max-width:230px;" oninput="filtrarParcelas()" aria-label="Buscar título">
+          <!-- v2.13.0: busca por cliente, faixa de valor e vencimento -->
+          <input type="text" id="v2130ParcCliente" placeholder="Cliente (nome ou CNPJ)" style="max-width:220px;" oninput="filtrarParcelas()" aria-label="Cliente">
+          <span style="display:inline-flex;align-items:center;gap:4px;"><span class="sub">Valor</span>
+            <input type="number" id="v2130ParcVmin" placeholder="de" step="0.01" min="0" style="width:96px;padding:7px 8px;" oninput="filtrarParcelas()" aria-label="Valor de">
+            <input type="number" id="v2130ParcVmax" placeholder="até" step="0.01" min="0" style="width:96px;padding:7px 8px;" oninput="filtrarParcelas()" aria-label="Valor até"></span>
+          <span style="display:inline-flex;align-items:center;gap:4px;"><span class="sub">Vencimento</span>
+            <input type="date" id="v2130ParcDe" style="width:auto;padding:7px 8px;" onchange="filtrarParcelas()" aria-label="Vencimento de">
+            <span class="sub">a</span>
+            <input type="date" id="v2130ParcAte" style="width:auto;padding:7px 8px;" onchange="filtrarParcelas()" aria-label="Vencimento até"></span>
           <select id="parcelasStatus" style="max-width:180px;" onchange="filtrarParcelas()">
             <option value="aberta">Abertas</option>
             <option value="paga">Pagas</option>
             <option value="baixa_manual">Baixa manual</option>
+            <option value="renegociada">Renegociadas</option>
+            <option value="cancelada">Canceladas</option>
             <option value="">Todas</option>
           </select>
           <label style="display:flex;align-items:center;gap:6px;margin:0;text-transform:none;font-size:13px;font-weight:400;color:var(--text);cursor:pointer;">
             <input type="checkbox" id="parcelasSoVencidas" checked style="width:auto;" onchange="filtrarParcelas()">
             Somente vencidas
           </label>
+          <button type="button" class="btn sm" onclick="v2130LimparFiltrosParc()">Limpar filtros</button>
+          <button type="button" class="btn sm solid" onclick="v2130AbrirLancar()" style="margin-left:auto;">➕ Lançar boleto manual</button>
         </div>
         <div style="overflow-x:auto;">
           <table id="tabelaParcelas">
@@ -958,6 +981,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
               <tr>
                 <th>Cliente</th>
                 <th>Documento</th>
+                <th>Nosso número</th>
                 <th>Vencimento</th>
                 <th class="num">Valor</th>
                 <th class="num">Atraso</th>
@@ -967,6 +991,36 @@ tr:hover td{background:rgba(255,255,255,.025)}
             </thead>
             <tbody></tbody>
           </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── v2.13.0: MODAL LANÇAR BOLETO MANUAL ─── -->
+    <div id="v2130ModalLancar" style="display:none;position:fixed;inset:0;background:rgba(15,30,45,.55);z-index:60;align-items:center;justify-content:center;padding:16px;" onclick="if(event.target===this)v2130FecharLancar()">
+      <div role="dialog" aria-labelledby="v2130LancTit" style="background:#1E1B1F;border:1px solid var(--border2);border-radius:14px;padding:24px 26px;width:460px;max-width:100%;max-height:92vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);">
+        <h3 id="v2130LancTit" style="margin-bottom:4px;">Lançar boleto manual</h3>
+        <div class="card-sub" style="margin-bottom:16px;">Para boleto emitido fora da remessa (.CRM). Entra como parcela em aberto e passa a ser cobrado e conferido no retorno e no confronto.</div>
+        <div style="margin-bottom:12px;">
+          <label for="v2130LancCli">Cliente</label>
+          <input type="text" id="v2130LancCli" list="v2130LancCliLista" placeholder="Digite o nome ou o CNPJ e escolha na lista" autocomplete="off">
+          <datalist id="v2130LancCliLista"></datalist>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+          <div><label for="v2130LancDoc">Documento</label><input type="text" id="v2130LancDoc" placeholder="ex.: U16900" maxlength="30"></div>
+          <div><label for="v2130LancNosso">Nosso número <span style="text-transform:none;font-weight:400;">(opcional)</span></label><input type="text" id="v2130LancNosso" placeholder="do banco, se tiver" maxlength="30"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
+          <div><label for="v2130LancValor">Valor (R$)</label><input type="number" id="v2130LancValor" step="0.01" min="0.01"></div>
+          <div><label for="v2130LancVenc">Vencimento</label><input type="date" id="v2130LancVenc"></div>
+        </div>
+        <div style="margin-bottom:18px;">
+          <label for="v2130LancObs">Observação <span style="text-transform:none;font-weight:400;">(motivo do lançamento)</span></label>
+          <input type="text" id="v2130LancObs" placeholder="ex.: boleto avulso emitido no banco" maxlength="200">
+        </div>
+        <div class="v25-erro" id="v2130LancErro" role="alert"></div>
+        <div style="display:flex;gap:10px;justify-content:flex-end;">
+          <button class="btn" type="button" onclick="v2130FecharLancar()">Cancelar</button>
+          <button class="btn solid" type="button" id="v2130LancSalvar" onclick="v2130SalvarLancar()">Lançar boleto</button>
         </div>
       </div>
     </div>
@@ -1269,17 +1323,53 @@ tr:hover td{background:rgba(255,255,255,.025)}
         <div class="card-header" style="margin:0;">
           <div>
             <h2>📈 Relatórios</h2>
-            <div class="card-sub" style="margin:0 0 2px;">Envios de cobrança, recebimentos, carteira em aberto, recuperação, efetividade e maiores devedores. Os erros ficam na aba <a href="#" onclick="v22Ir('navErros');return false;">Erros</a>.</div>
-            <div class="card-sub" id="v26RelSub" style="margin:0;"></div>
-          </div>
-          <div class="page-actions">
-            <select id="v26RelPeriodo" onchange="v26RelCarregar()" style="width:auto;padding:8px 10px;"><option value="3">Últimos 3 meses</option><option value="6" selected>Últimos 6 meses</option><option value="12">Últimos 12 meses</option></select>
-            <button class="btn sm" onclick="v26RelCsv()">⬇ Exportar CSV</button>
-            <button class="btn sm" onclick="v26RelImprimir()">🖨 Imprimir / PDF</button>
-            <button class="btn sm" onclick="v26RelCarregar()">↻ Atualizar</button>
+            <div class="card-sub" style="margin:0 0 2px;">Escolha a aba: boletos em aberto, envios de cobrança, recebimentos ou visão geral. Os erros ficam na aba <a href="#" onclick="v22Ir('navErros');return false;">Erros</a>.</div>
           </div>
         </div>
       </div>
+      <!-- v2.13.0: relatórios separados em abas -->
+      <nav class="v2130-tabs" role="tablist" aria-label="Relatórios">
+        <button type="button" role="tab" data-aba="abertos" onclick="v2130RelAba('abertos')">Boletos em aberto</button>
+        <button type="button" role="tab" data-aba="envios" onclick="v2130RelAba('envios')">Envios de cobrança</button>
+        <button type="button" role="tab" data-aba="recebimentos" onclick="v2130RelAba('recebimentos')">Recebimentos</button>
+        <button type="button" role="tab" data-aba="geral" onclick="v2130RelAba('geral')">Visão geral e gráficos</button>
+      </nav>
+      <div class="v2130-aba" data-aba="abertos">
+      <!-- v2.11.0: boletos em aberto por situação e período de vencimento -->
+      <div class="card" style="margin-bottom:18px;">
+        <div class="card-header" style="margin:0 0 12px;">
+          <div>
+            <h3 style="margin:0;">Boletos em aberto</h3>
+            <div class="card-sub" id="v211Sub" style="margin:0;">Busque por título, cliente, valor e vencimento.</div>
+          </div>
+          <div class="page-actions" style="flex-wrap:wrap;">
+            <select id="v211Situacao" onchange="v211Carregar()" style="width:auto;padding:8px 10px;" aria-label="Situação">
+              <option value="todos" selected>Todos em aberto</option><option value="atraso">Em atraso</option><option value="avencer">A vencer</option></select>
+            <select id="v211Periodo" onchange="v211Preset()" style="width:auto;padding:8px 10px;" aria-label="Período de vencimento">
+              <option value="tudo" selected>Qualquer vencimento</option><option value="mes">Vencimento neste mês</option><option value="mesant">Mês passado</option>
+              <option value="prox30">Próximos 30 dias</option><option value="ult30">Últimos 30 dias</option><option value="ult90">Últimos 90 dias</option><option value="ano">Este ano</option><option value="custom">Escolher datas…</option></select>
+            <span id="v211Datas" style="display:none;align-items:center;gap:6px;">
+              <input type="date" id="v211De" onchange="v211Carregar()" style="width:auto;padding:7px 8px;" aria-label="Vencimento de">
+              <span class="sub">a</span>
+              <input type="date" id="v211Ate" onchange="v211Carregar()" style="width:auto;padding:7px 8px;" aria-label="Vencimento até"></span>
+            <button class="btn sm" onclick="v211Csv()">⬇ Exportar CSV</button>
+          </div>
+        </div>
+        <!-- v2.13.0: busca por título, cliente e valor -->
+        <div class="toolbar" style="flex-wrap:wrap;margin:-4px 0 14px;">
+          <input type="search" id="v2130AbTitulo" oninput="v2130AbDesenhar()" placeholder="Título: documento ou nosso número" style="max-width:240px;padding:7px 10px;" aria-label="Título">
+          <input type="search" id="v2130AbCliente" oninput="v2130AbDesenhar()" placeholder="Cliente (nome ou CNPJ)" style="max-width:240px;padding:7px 10px;" aria-label="Cliente">
+          <span style="display:inline-flex;align-items:center;gap:4px;"><span class="sub">Valor</span>
+            <input type="number" id="v2130AbVmin" oninput="v2130AbDesenhar()" placeholder="de" min="0" step="0.01" style="width:100px;padding:7px 8px;" aria-label="Valor de">
+            <input type="number" id="v2130AbVmax" oninput="v2130AbDesenhar()" placeholder="até" min="0" step="0.01" style="width:100px;padding:7px 8px;" aria-label="Valor até"></span>
+          <select id="v2130AbOrdem" onchange="v2130AbDesenhar()" style="width:auto;padding:7px 10px;" aria-label="Ordenar">
+            <option value="venc">Ordenar por vencimento</option><option value="valor">Maior valor</option><option value="atraso">Maior atraso</option><option value="cliente">Cliente (A–Z)</option></select>
+          <button type="button" class="btn sm" onclick="v2130AbLimpar()">Limpar busca</button>
+        </div>
+        <div id="v211Corpo"><div class="sub">Carregando…</div></div>
+      </div>
+      </div>
+      <div class="v2130-aba" data-aba="envios" style="display:none;">
       <!-- v2.12.0: relação de envios de cobrança -->
       <div class="card" style="margin-bottom:18px;">
         <div class="card-header" style="margin:0 0 12px;">
@@ -1303,6 +1393,8 @@ tr:hover td{background:rgba(255,255,255,.025)}
         </div>
         <div id="v212EnvCorpo"><div class="sub">Carregando…</div></div>
       </div>
+      </div>
+      <div class="v2130-aba" data-aba="recebimentos" style="display:none;">
       <!-- v2.12.0: recebimentos por forma, dia e cliente -->
       <div class="card" style="margin-bottom:18px;">
         <div class="card-header" style="margin:0 0 12px;">
@@ -1319,28 +1411,18 @@ tr:hover td{background:rgba(255,255,255,.025)}
         </div>
         <div id="v212RecCorpo"><div class="sub">Carregando…</div></div>
       </div>
-      <!-- v2.11.0: boletos em aberto por situação e período de vencimento -->
-      <div class="card" style="margin-bottom:18px;">
-        <div class="card-header" style="margin:0 0 12px;">
-          <div>
-            <h3 style="margin:0;">Boletos em aberto</h3>
-            <div class="card-sub" id="v211Sub" style="margin:0;">Escolha a situação e o período de vencimento.</div>
-          </div>
-          <div class="page-actions" style="flex-wrap:wrap;">
-            <select id="v211Situacao" onchange="v211Carregar()" style="width:auto;padding:8px 10px;" aria-label="Situação">
-              <option value="todos" selected>Todos em aberto</option><option value="atraso">Em atraso</option><option value="avencer">A vencer</option></select>
-            <select id="v211Periodo" onchange="v211Preset()" style="width:auto;padding:8px 10px;" aria-label="Período de vencimento">
-              <option value="tudo" selected>Qualquer vencimento</option><option value="mes">Vencimento neste mês</option><option value="mesant">Mês passado</option>
-              <option value="prox30">Próximos 30 dias</option><option value="ult30">Últimos 30 dias</option><option value="ult90">Últimos 90 dias</option><option value="ano">Este ano</option><option value="custom">Escolher datas…</option></select>
-            <span id="v211Datas" style="display:none;align-items:center;gap:6px;">
-              <input type="date" id="v211De" onchange="v211Carregar()" style="width:auto;padding:7px 8px;" aria-label="Vencimento de">
-              <span class="sub">a</span>
-              <input type="date" id="v211Ate" onchange="v211Carregar()" style="width:auto;padding:7px 8px;" aria-label="Vencimento até"></span>
-            <button class="btn sm" onclick="v211Csv()">⬇ Exportar CSV</button>
-          </div>
-        </div>
-        <div id="v211Corpo"><div class="sub">Carregando…</div></div>
       </div>
+      <div class="v2130-aba" data-aba="geral" style="display:none;">
+      <div class="card" style="margin-bottom:18px;"><div class="card-header" style="margin:0;"><div><h3 style="margin:0;">Visão geral</h3>
+        <div class="card-sub" style="margin:0;">Carteira, recuperação por mês, envelhecimento, efetividade das cobranças, promessas, maiores devedores e canais.</div>
+        <div class="card-sub" id="v26RelSub" style="margin:0;"></div></div>
+        <div class="page-actions">
+            <select id="v26RelPeriodo" onchange="v26RelCarregar()" style="width:auto;padding:8px 10px;"><option value="3">Últimos 3 meses</option><option value="6" selected>Últimos 6 meses</option><option value="12">Últimos 12 meses</option></select>
+            <button class="btn sm" onclick="v26RelCsv()">⬇ Exportar CSV</button>
+            <button class="btn sm" onclick="v26RelImprimir()">🖨 Imprimir / PDF</button>
+            <button class="btn sm" onclick="v26RelCarregar()">↻ Atualizar</button>
+          </div>
+      </div></div>
       <div class="v26-kpi" id="v26RelKpis"></div>
       <div class="v26-two">
         <div class="card"><h3>Novo atraso × recuperado, por mês<span style="display:block;font-size:12px;color:var(--muted);font-weight:500;">valor original das parcelas que venceram e ficaram em atraso × valor recebido de parcelas já vencidas</span></h3>
@@ -1359,6 +1441,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
         <div style="overflow:auto;"><table class="v26-tab" id="v26RelTop"><thead><tr><th>#</th><th>Cliente</th><th class="num">Parcelas</th><th class="num">Valor atualizado</th><th class="num">Maior atraso</th><th>Forma de envio</th><th>Última cobrança</th><th>Última ligação</th></tr></thead><tbody><tr><td colspan="8" class="v24-vazio">Carregando…</td></tr></tbody></table></div></div></div>
       <div class="v26-one"><div class="card"><h3>Canais de cobrança<span style="display:block;font-size:12px;color:var(--muted);font-weight:500;">envios feitos no período e cobertura de contato dos clientes em atraso</span></h3>
         <div id="v26RelCanais"></div></div></div>
+          </div>
     </div>
 
     <!-- v2.12.0: aba Erros (era a parte de erros da aba Relatórios) -->
@@ -1400,6 +1483,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
         <table>
           <thead><tr><th style="white-space:nowrap;">Versão</th><th style="white-space:nowrap;">Data</th><th>O que mudou</th></tr></thead>
           <tbody>
+            <tr><td><b>v2.13.0</b></td><td>08/10/2026</td><td><b>Busca de títulos, lançamento manual de boleto, relatórios em abas e período no painel.</b> <b>Parcelas</b> (Conferir): busca do título por documento ou nosso número, por <b>cliente</b> (nome ou CNPJ), por <b>faixa de valor</b> e por <b>período de vencimento</b>, com a soma do que foi encontrado; coluna de nosso número; filtro de renegociadas e canceladas. <b>Lançar boleto manual</b>: para boleto emitido fora da remessa — cliente, documento, nosso número (opcional), valor, vencimento e motivo; não aceita número repetido, entra como parcela em aberto (origem "manual", marcada na lista), fica reconhecível no retorno do banco e registrada no histórico do cliente. <b>Relatórios em abas</b>: <i>Boletos em aberto</i> (situação, período de vencimento e agora busca por título, cliente e valor, ordenação e gráficos por faixa de atraso, por mês de vencimento, maiores clientes e faixa de valor), <i>Envios de cobrança</i>, <i>Recebimentos</i> e <i>Visão geral e gráficos</i>; a última aba usada é lembrada. <b>Painel</b>: seletor de período (até hoje, este mês, mês passado, últimos 30/90 dias, este ano ou datas) — o padrão traz tudo até o dia atual; a carteira em atraso considera os vencidos do período, recuperado, novo atraso, taxa e atraso médio passam a ser do período e o gráfico acompanha as datas escolhidas. Sem migration; robô sem mudança.</td></tr>
             <tr><td><b>v2.12.0</b></td><td>06/10/2026</td><td><b>Painel com valor atual e com multa e juros; aba Erros; novos relatórios.</b> <b>Painel</b>: a carteira em atraso mostra lado a lado o <b>valor atual</b> (original dos títulos), o valor <b>com multa e juros</b> e a diferença (multa + juros, em R$ e %); a barra por tempo de atraso e a tabela dos maiores saldos também trazem o valor atual, a multa + juros e o total. <b>Aba Erros</b> (novo ícone no trilho): importações, falhas do robô/app e diferenças Questor × app, que antes ficavam em Relatórios. <b>Relatórios</b>: novo relatório de <b>envios de cobrança</b> — período, forma (e-mail/WhatsApp), situação (reais, teste, não entregues), para quem foi enviado (e o destinatário original quando em teste), separado por data, por cliente ou em lista, com gráfico de envios por dia, filtro por cliente/e-mail/telefone e CSV; novo relatório de <b>recebimentos</b> — total, recebido em atraso, multa e juros recebidos, ticket médio, gráfico por dia (no prazo × em atraso), por forma de recebimento e clientes que mais pagaram, com CSV. Os demais relatórios e gráficos (boletos em aberto, evolução mensal, envelhecimento, efetividade, promessas, maiores devedores, canais) continuam na aba. <b>Baixa manual</b>: nova opção <b>Renegociada (substituída por novos boletos)</b> para título dividido ou trocado no Questor — sai da cobrança sem lançar pagamento nem perdão, com os novos documentos no histórico; só diretor (o banco confere). Sem migration; robô sem mudança.</td></tr>
             <tr><td><b>v2.11.1</b></td><td>06/10/2026</td><td><b>Varredura de erros e segurança antes da integração Sicredi.</b> <b>Modo de teste</b>: se o app não conseguir ler do banco se o teste está ligado, o envio é <b>bloqueado</b> (antes contava como desligado e ia para os clientes reais); o modo de teste é relido antes de cada envio e do lote, e vale mesmo que outro diretor o ligue em outra aba. <b>Envio em dobro</b>: o "Enviar todos" fica travado até o lote terminar (antes o botão voltava a ficar ativo no meio do lote) e o duplo clique no "Enviar" de um cliente não manda duas vezes. E-mail enviado cujo registro no histórico falhou passa a ser avisado (senão o cliente voltava como pendente). Sem a lista de títulos do cliente a cobrança não sai mais com valores desatualizados. <b>Painel Robô</b>: ciclo marcado como concluído mas com etapa em erro (ex.: 06/10 — relatório de pendentes recusado, sem confronto) aparece em amarelo com o motivo; pedido de ciclo usa o limite certo de 100 min; pedido "executando" que passou do limite aparece como erro; pedido aguardando enquanto o robô roda outro ciclo diz que está na fila. <b>Segurança</b>: escape de nomes e de dados do robô/WhatsApp no HTML (XSS), CSV exportado protegido contra fórmulas (= + - @), scripts do Supabase e do SheetJS com verificação de integridade (SRI), volta para o login quando a sessão expira. Leitura paginada com ordem estável (acima de 1.000 linhas não repete nem pula registros); última parcela do parcelamento nunca negativa. Sem migration; robô sem mudança.</td></tr>
             <tr><td><b>v2.11.0</b></td><td>04/10/2026</td><td><b>Relatório de boletos em aberto.</b> Em Relatórios, quadro novo com a situação (<b>todos em aberto</b>, <b>em atraso</b> ou <b>a vencer</b>) e o período de vencimento (este mês, mês passado, próximos 30 dias, últimos 30/90 dias, este ano ou datas escolhidas). Mostra total, em atraso com multa e juros, a vencer, encargos e a lista por cliente, número, vencimento e dias; exporta CSV. Robô v2.6.0: e-mail com o resumo completo ao fim de cada ciclo e de cada "Conferir agora" (retornos, Questor, pendentes, confronto com as diferenças boleto a boleto, recebimentos, Sicredi e todos os erros).</td></tr>
@@ -1457,6 +1541,17 @@ tr:hover td{background:rgba(255,255,255,.025)}
 
     <!-- ─── PAINEL: DASHBOARD ─── -->
     <div id="cardDashboard" style="display:none;">
+      <!-- v2.13.0: período do painel (padrão: tudo até hoje) -->
+      <div class="v2130-per" role="group" aria-label="Período do painel">
+        <span class="lb">Período</span>
+        <select id="v2130DashPer" onchange="v2130DashPreset()" aria-label="Período">
+          <option value="tudo" selected>Até hoje</option><option value="mes">Este mês</option><option value="mesant">Mês passado</option>
+          <option value="ult30">Últimos 30 dias</option><option value="ult90">Últimos 90 dias</option><option value="ano">Este ano</option><option value="custom">Escolher datas</option></select>
+        <span id="v2130DashDatas" style="display:none;align-items:center;gap:6px;">
+          <input type="date" id="v2130DashDe" onchange="carregarDashboard()" aria-label="De"><span class="sub">a</span>
+          <input type="date" id="v2130DashAte" onchange="carregarDashboard()" aria-label="Até"></span>
+        <span class="rot" id="v2130DashRot"></span>
+      </div>
       <div class="v23-hero">
         <div class="card v23-cart">
           <div class="v23-lbl">Carteira em atraso <span class="at" id="v23Atualizado">Carregando…</span></div>
@@ -1471,8 +1566,8 @@ tr:hover td{background:rgba(255,255,255,.025)}
           <div class="v23-leg" id="v23Leg"></div>
         </div>
         <div class="v23-kpis">
-          <div class="card v23-kpi" title="Pagamentos recebidos neste mês de parcelas que já estavam vencidas."><div class="lb">Recuperado no mês</div><div class="vl cy" id="v23Rec">—</div><div class="ft" id="v23RecFt"></div></div>
-          <div class="card v23-kpi" title="Parcelas que venceram neste mês e continuam em aberto."><div class="lb">Novo atraso no mês</div><div class="vl rd" id="v23Novo">—</div><div class="ft" id="v23NovoFt"></div></div>
+          <div class="card v23-kpi" title="Pagamentos recebidos neste mês de parcelas que já estavam vencidas."><div class="lb" id="v2130LbRec">Recuperado no mês</div><div class="vl cy" id="v23Rec">—</div><div class="ft" id="v23RecFt"></div></div>
+          <div class="card v23-kpi" title="Parcelas que venceram neste mês e continuam em aberto."><div class="lb" id="v2130LbNovo">Novo atraso no mês</div><div class="vl rd" id="v23Novo">—</div><div class="ft" id="v23NovoFt"></div></div>
           <div class="card v23-kpi" title="Recuperado no mês dividido por (recuperado no mês + valor original em atraso hoje)."><div class="lb">Taxa de recuperação</div><div class="vl" id="v23Taxa">—</div><div class="ft" id="v23TaxaFt">no mês</div>
             <svg class="ring" width="54" height="54" viewBox="0 0 54 54"><circle cx="27" cy="27" r="22" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="6"/><circle id="v23Ring" cx="27" cy="27" r="22" fill="none" stroke="#18B7F0" stroke-width="6" stroke-linecap="round" stroke-dasharray="0 138.2" transform="rotate(-90 27 27)" style="filter:drop-shadow(0 0 6px #18B7F0)"/></svg></div>
           <div class="card v23-kpi" title="Média de dias entre o vencimento e o pagamento, nos pagamentos em atraso dos últimos 90 dias."><div class="lb">Atraso médio dos pagamentos</div><div class="vl" id="v23Medio">—</div><div class="ft" id="v23MedioFt">últimos 90 dias</div></div>
@@ -1486,7 +1581,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
 
       <div class="v24-low">
         <div class="card v24-pri"><h3>Prioridades de hoje<span>maior chance de recuperar ou de perder</span></h3><div id="v24Pri"><div class="v24-vazio">Carregando…</div></div></div>
-        <div class="card"><h3>Recuperado × novo atraso<span>últimos 30 dias, acumulado</span></h3>
+        <div class="card"><h3>Recuperado × novo atraso<span id="v2130GrafRot">últimos 30 dias, acumulado</span></h3>
           <div class="v24-leg"><span><i style="background:#18B7F0"></i>Recuperado</span><span><i style="background:#E3262E"></i>Novo atraso</span></div>
           <div id="v24Graf"></div><div class="v24-ft" id="v24GrafFt"></div><div class="v24-res" id="v24GrafRes"></div></div>
         <div class="card"><h3>Canais<span>clientes em atraso</span></h3><div id="v24Can"><div class="v24-vazio">Carregando…</div></div></div>
@@ -5827,13 +5922,13 @@ async function carregarParcelas() {
     let data;   // v2.5.4: busca em páginas (antes parava em 1.000 linhas)
     try {
       data = await buscarTodasPaginas(() => supabaseClient.from('cob_parcelas')
-        .select('id, cliente_id, nosso_numero, documento, valor_original, data_vencimento, status, cob_clientes(razao_social)')
+        .select('id, cliente_id, nosso_numero, documento, valor_original, data_vencimento, status, origem, cob_clientes(razao_social, cnpj)')
         .eq('tenant_id', tenantIdAtual).order('data_vencimento').order('id'));
     } catch (error) { mostrarToast('Erro ao carregar parcelas: ' + error.message); return; }
     parcelasLista = (data || []).map(p => ({
-      id: p.id, clienteId: p.cliente_id, razaoSocial: p.cob_clientes?.razao_social || '—',
-      documento: p.documento || p.nosso_numero, nossoNumero: p.nosso_numero,
-      valor: p.valor_original, vencimento: p.data_vencimento, status: p.status,
+      id: p.id, clienteId: p.cliente_id, razaoSocial: p.cob_clientes?.razao_social || '—', cnpj: p.cob_clientes?.cnpj || '',
+      documento: p.documento || p.nosso_numero, nossoNumero: p.nosso_numero, origem: p.origem || '',
+      valor: Number(p.valor_original) || 0, vencimento: p.data_vencimento, status: p.status,
     }));
   }
   filtrarParcelas();
@@ -5854,24 +5949,32 @@ function filtrarParcelas() {
   const hoje = new Date(); hoje.setHours(0,0,0,0);
   const fmt = v => 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 
+  // v2.13.0: cliente (nome ou CNPJ), faixa de valor e período de vencimento
+  const cli = (document.getElementById('v2130ParcCliente').value || '').trim().toLowerCase(), cliDig = cli.replace(/\D/g, '');
+  const vmin = parseFloat(document.getElementById('v2130ParcVmin').value), vmax = parseFloat(document.getElementById('v2130ParcVmax').value);
+  const vde = document.getElementById('v2130ParcDe').value, vate = document.getElementById('v2130ParcAte').value;
   const filtradas = parcelasLista.filter(p => {
     const matchBusca = !busca ||
       p.razaoSocial.toLowerCase().includes(busca) ||
       (p.nossoNumero || '').toLowerCase().includes(busca) ||
       (p.documento || '').toLowerCase().includes(busca);   // v2.5.4: busca também pelo documento (U16019)
+    const matchCli = !cli || p.razaoSocial.toLowerCase().includes(cli) || (cliDig.length >= 4 && String(p.cnpj || '').includes(cliDig));
+    const matchValor = (isNaN(vmin) || p.valor >= vmin - 0.005) && (isNaN(vmax) || p.valor <= vmax + 0.005);
+    const matchVenc = (!vde || p.vencimento >= vde) && (!vate || p.vencimento <= vate);
     const matchStatus = !status || p.status === status;
     const venc = new Date(p.vencimento + 'T00:00:00');
     const matchVencida = !soVencidas || (p.status !== 'aberta') || venc < hoje;
-    return matchBusca && matchStatus && matchVencida;
+    return matchBusca && matchCli && matchValor && matchVenc && matchStatus && matchVencida;
   });
 
   const totalAberto = parcelasLista.filter(p => p.status === 'aberta').reduce((s, p) => s + p.valor, 0);
+  const totalFiltro = filtradas.reduce((s, p) => s + p.valor, 0);   // v2.13.0
   document.getElementById('parcelasContador').textContent =
-    `${filtradas.length} exibida(s) de ${parcelasLista.length} · Total em aberto: ${fmt(totalAberto)}`;
+    `${filtradas.length} encontrada(s) de ${parcelasLista.length} · soma das encontradas: ${fmt(totalFiltro)} · total em aberto: ${fmt(totalAberto)}`;
 
   const tbody = document.querySelector('#tabelaParcelas tbody');
   if (filtradas.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:30px;">Nenhuma parcela encontrada.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:30px;">Nenhuma parcela encontrada.</td></tr>';
     return;
   }
 
@@ -5883,7 +5986,8 @@ function filtrarParcelas() {
     return `
     <tr>
       <td style="font-weight:600;">${autoEsc(p.razaoSocial)}</td>
-      <td style="font-size:12px;">${autoEsc(p.documento)}</td>
+      <td style="font-size:12px;">${autoEsc(p.documento)}${p.origem === 'manual' ? ' <span class="badge grey" title="Lançado manualmente">manual</span>' : ''}</td>
+      <td style="font-size:12px;color:var(--muted);">${p.nossoNumero && p.nossoNumero !== p.documento ? autoEsc(p.nossoNumero) : '—'}</td>
       <td style="white-space:nowrap;">${venc.toLocaleDateString('pt-BR')}</td>
       <td class="num">${fmt(p.valor)}</td>
       <td class="num">${p.status === 'aberta' && dias > 0 ? dias + 'd' : '—'}</td>
@@ -5892,7 +5996,68 @@ function filtrarParcelas() {
         ? `<button class="btn sm" onclick="abrirModalBaixa(${idx})">💰 Dar baixa</button>` : ''}</td>
     </tr>`;
   }).join('') + (filtradas.length > 300
-    ? '<tr><td colspan="7" style="text-align:center;color:var(--muted);">… mostrando as primeiras 300. Refine a busca.</td></tr>' : '');
+    ? '<tr><td colspan="8" style="text-align:center;color:var(--muted);">… mostrando as primeiras 300. Refine a busca.</td></tr>' : '');
+}
+/* ── v2.13.0: lançamento manual de boleto (fora da remessa) ── */
+let v2130Clientes = null;
+async function v2130AbrirLancar() {
+  ['v2130LancCli', 'v2130LancDoc', 'v2130LancNosso', 'v2130LancValor', 'v2130LancObs'].forEach(id => { document.getElementById(id).value = ''; });
+  document.getElementById('v2130LancVenc').value = hojeLocal();
+  v2130LancErro('');
+  document.getElementById('v2130ModalLancar').style.display = 'flex';
+  if (MODO_TESTE) { v2130Clientes = [{ id: 'c1', razao_social: 'Cliente Teste Ltda', cnpj: '12345678000199' }]; }
+  else if (!v2130Clientes) {
+    try { v2130Clientes = await buscarTodasPaginas(() => supabaseClient.from('cob_clientes').select('id, razao_social, cnpj').eq('tenant_id', tenantIdAtual)); }
+    catch (e) { v2130LancErro('Não foi possível carregar os clientes: ' + (e.message || e)); return; }
+  }
+  document.getElementById('v2130LancCliLista').innerHTML = v2130Clientes.slice().sort((a, b) => String(a.razao_social).localeCompare(String(b.razao_social), 'pt-BR'))
+    .map(c => `<option value="${autoEsc(v2130RotCli(c))}"></option>`).join('');
+  document.getElementById('v2130LancCli').focus();
+}
+function v2130RotCli(c) { return (c.razao_social || '—') + (c.cnpj ? ' — ' + fmtCnpj(c.cnpj) : ''); }
+function v2130LancErro(msg) { const el = document.getElementById('v2130LancErro'); el.textContent = msg; el.style.display = msg ? 'block' : 'none'; }
+function v2130FecharLancar() { document.getElementById('v2130ModalLancar').style.display = 'none'; }
+async function v2130SalvarLancar() {
+  const txt = document.getElementById('v2130LancCli').value.trim();
+  const cli = (v2130Clientes || []).find(c => v2130RotCli(c) === txt)
+    || ((v2130Clientes || []).filter(c => String(c.razao_social).toLowerCase() === txt.toLowerCase()).length === 1 ? v2130Clientes.find(c => String(c.razao_social).toLowerCase() === txt.toLowerCase()) : null);
+  const doc = document.getElementById('v2130LancDoc').value.trim().toUpperCase();
+  const nosso = document.getElementById('v2130LancNosso').value.trim().toUpperCase() || doc;
+  const valor = Math.round(parseFloat(document.getElementById('v2130LancValor').value) * 100) / 100;
+  const venc = document.getElementById('v2130LancVenc').value;
+  const obs = document.getElementById('v2130LancObs').value.trim();
+  if (!cli) return v2130LancErro('Escolha o cliente na lista (digite parte do nome ou do CNPJ).');
+  if (!doc || !/^[A-Z0-9][A-Z0-9./-]{1,29}$/.test(doc)) return v2130LancErro('Informe o número do documento (letras, números, ponto, barra ou hífen).');
+  if (!/^[A-Z0-9][A-Z0-9./-]{1,29}$/.test(nosso)) return v2130LancErro('Nosso número inválido.');
+  if (!(valor > 0)) return v2130LancErro('Informe um valor maior que zero.');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(venc)) return v2130LancErro('Informe o vencimento.');
+  if (obs.length < 5) return v2130LancErro('Informe o motivo do lançamento (mínimo 5 caracteres).');
+  if (!confirm(`Lançar o boleto ${doc} de ${cli.razao_social}\nValor R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} · vencimento ${autoFmtData(venc)}?`)) return;
+  if (MODO_TESTE) { v2130FecharLancar(); mostrarToast('(teste) boleto lançado.'); return; }
+  const btn = document.getElementById('v2130LancSalvar'); btn.disabled = true; v2130LancErro('');
+  try {
+    // não deixa duplicar: o mesmo número já existe como documento ou nosso número?
+    const { data: dup, error: eDup } = await supabaseClient.from('cob_parcelas').select('id, documento, nosso_numero, status, cob_clientes(razao_social)')
+      .eq('tenant_id', tenantIdAtual).or(`nosso_numero.eq.${nosso},documento.eq.${doc},nosso_numero.eq.${doc}`).limit(1);
+    if (eDup) throw eDup;
+    if (dup && dup.length) throw new Error(`o número ${dup[0].documento || dup[0].nosso_numero} já existe no app (${dup[0].cob_clientes?.razao_social || 'cliente'}, ${dup[0].status}).`);
+    const { data: ins, error } = await supabaseClient.from('cob_parcelas').insert({ tenant_id: tenantIdAtual, cliente_id: cli.id, nosso_numero: nosso, documento: doc,
+      valor_original: valor, data_vencimento: venc, status: 'aberta', origem: 'manual' }).select('id').single();
+    if (error) throw error;
+    // o retorno do banco reconhece o boleto pelo nosso número (mesmo caminho do confronto)
+    const { error: eLeg } = await supabaseClient.from('cob_clientes_codigos_legados')
+      .upsert({ tenant_id: tenantIdAtual, cliente_id: cli.id, nosso_numero: nosso }, { onConflict: 'tenant_id,nosso_numero', ignoreDuplicates: true });
+    const { error: eEv } = await supabaseClient.from('cob_eventos').insert({ tenant_id: tenantIdAtual, cliente_id: cli.id, parcela_id: ins.id,
+      tipo: 'parcela_lancada_manual', detalhe: { documento: doc, nosso_numero: nosso, valor, vencimento: venc, motivo: obs } });
+    v2130FecharLancar();
+    await carregarParcelas();
+    mostrarToast(`✅ Boleto ${doc} lançado para ${cli.razao_social}.` + (eLeg || eEv ? ' (aviso: ' + ((eLeg || eEv).message) + ')' : ''));
+  } catch (e) { v2130LancErro('Não foi lançado: ' + (e.message || e)); }
+  finally { btn.disabled = false; }
+}
+function v2130LimparFiltrosParc() {   // v2.13.0
+  ['parcelasBusca', 'v2130ParcCliente', 'v2130ParcVmin', 'v2130ParcVmax', 'v2130ParcDe', 'v2130ParcAte'].forEach(id => { document.getElementById(id).value = ''; });
+  filtrarParcelas();
 }
 
 function abrirModalBaixa(idx) {
@@ -7275,6 +7440,26 @@ async function abrirDashboard() {
   await carregarDashboard();
 }
 
+// v2.13.0: período do painel — padrão "Até hoje" (carteira inteira vencida até hoje; recuperado e novo atraso do mês)
+function v2130DashPreset() {
+  const p = document.getElementById('v2130DashPer').value, h = new Date(); h.setHours(0, 0, 0, 0);
+  const iso = d => v23DataLocal(d), menos = n => { const d = new Date(h); d.setDate(d.getDate() - n); return iso(d); };
+  const F = { tudo: ['', ''], mes: [iso(new Date(h.getFullYear(), h.getMonth(), 1)), iso(h)], mesant: [iso(new Date(h.getFullYear(), h.getMonth() - 1, 1)), iso(new Date(h.getFullYear(), h.getMonth(), 0))],
+    ult30: [menos(29), iso(h)], ult90: [menos(89), iso(h)], ano: [h.getFullYear() + '-01-01', iso(h)] };
+  document.getElementById('v2130DashDatas').style.display = p === 'custom' ? 'inline-flex' : 'none';
+  if (p !== 'custom') { document.getElementById('v2130DashDe').value = F[p][0]; document.getElementById('v2130DashAte').value = F[p][1]; }
+  else if (!document.getElementById('v2130DashAte').value) document.getElementById('v2130DashAte').value = iso(h);
+  carregarDashboard();
+}
+function v2130DashPeriodo() {
+  const hoje = hojeLocal(), el = id => document.getElementById(id);
+  const preset = el('v2130DashPer') ? el('v2130DashPer').value : 'tudo';
+  let de = el('v2130DashDe') ? el('v2130DashDe').value : '', ate = (el('v2130DashAte') && el('v2130DashAte').value) || hoje;
+  if (ate > hoje) ate = hoje;   // a carteira em atraso só existe até hoje
+  if (de && de > ate) de = ate;
+  const kpiDe = de || hoje.slice(0, 8) + '01';   // sem início: recuperado e novo atraso do mês corrente
+  return { preset, de, ate, kpiDe, todo: !de, rotKpi: !de ? 'no mês' : 'no período' };
+}
 async function carregarDashboard() {
   const at = document.getElementById('v23Atualizado');
   at.textContent = 'Carregando…';
@@ -7315,21 +7500,27 @@ async function v23Paginar(montar) {
 
 async function v23Dados() {
   const t = tenantIdAtual, hoje = new Date(), hojeISO = v23DataLocal(hoje);
-  const inicioMes = hojeISO.slice(0, 8) + '01';
+  const per = v2130DashPeriodo();   // v2.13.0
+  const inicioMes = per.kpiDe, fimPer = per.ate;
   const d90 = new Date(hoje); d90.setDate(d90.getDate() - 90);
+  const desdePag = [v23DataLocal(d90), per.kpiDe, per.de].filter(Boolean).sort()[0];
   const meiaNoite = new Date(hoje); meiaNoite.setHours(0, 0, 0, 0);
 
   // 1) parcelas vencidas em aberto, já com multa e juros pelo motor
   let abertas, comEncargos = true;
   try {
-    abertas = await v23Paginar(() => supabaseClient.from('cob_parcelas_abertas_com_encargos')
+    abertas = await v23Paginar(() => { let q = supabaseClient.from('cob_parcelas_abertas_com_encargos')
       .select('id, cliente_id, razao_social, valor_original, data_vencimento, dias_atraso, valor_atualizado')
-      .eq('tenant_id', t).order('data_vencimento'));
+      .eq('tenant_id', t).lte('data_vencimento', fimPer);
+      if (per.de) q = q.gte('data_vencimento', per.de);   // v2.13.0: carteira vencida dentro do período
+      return q.order('data_vencimento'); });
   } catch (e) {
     comEncargos = false;
-    const bruto = await v23Paginar(() => supabaseClient.from('cob_parcelas')
+    const bruto = await v23Paginar(() => { let q = supabaseClient.from('cob_parcelas')
       .select('id, cliente_id, valor_original, data_vencimento, cob_clientes(razao_social)')
-      .eq('tenant_id', t).eq('status', 'aberta').lt('data_vencimento', hojeISO).order('data_vencimento'));
+      .eq('tenant_id', t).eq('status', 'aberta').lt('data_vencimento', hojeISO).lte('data_vencimento', fimPer);
+      if (per.de) q = q.gte('data_vencimento', per.de);
+      return q.order('data_vencimento'); });
     abertas = bruto.map(p => ({ ...p, razao_social: p.cob_clientes?.razao_social,
       dias_atraso: Math.floor((meiaNoite - new Date(p.data_vencimento + 'T00:00:00')) / 86400000), valor_atualizado: p.valor_original }));
   }
@@ -7337,7 +7528,7 @@ async function v23Dados() {
   const [pagamentos, execs, pendentes, filaEnvio, filaLigar, enviadosHoje] = await Promise.all([
     v23Seguro(() => v23Paginar(() => supabaseClient.from('cob_pagamentos')
       .select('valor_recebido, data_recebimento, criado_em, cob_parcelas(data_vencimento)')
-      .eq('tenant_id', t).gte('data_recebimento', v23DataLocal(d90)))),
+      .eq('tenant_id', t).gte('data_recebimento', desdePag))),
     v23Seguro(async () => { const { data, error } = await supabaseClient.from('cob_automacao_execucoes').select('*')
       .eq('tenant_id', t).gte('iniciado_em', meiaNoite.toISOString()).order('iniciado_em', { ascending: false }).limit(50); if (error) throw error; return data; }),
     v23Seguro(async () => { const { count, error } = await supabaseClient.from('cob_conciliacao_itens').select('id', { count: 'exact', head: true })
@@ -7356,7 +7547,7 @@ async function v23Dados() {
   });
   const extra = await v24Dados(t);
   return { abertas, comEncargos, pagamentos: pagamentos || [], execs: execs || [], pendentes, filaEnvio,
-    filaLigar: Array.isArray(filaLigar) ? filaLigar.length : null, filaLigarItens: filaLigar || [], enviadosHoje, remessa, hojeISO, inicioMes, ...extra };
+    filaLigar: Array.isArray(filaLigar) ? filaLigar.length : null, filaLigarItens: filaLigar || [], enviadosHoje, remessa, hojeISO, inicioMes, fimPer, per, ...extra };
 }
 
 function v23Calcular(d) {
@@ -7366,7 +7557,7 @@ function v23Calcular(d) {
     const v = Number(p.valor_atualizado) || 0, o = Number(p.valor_original) || 0, dias = Number(p.dias_atraso) || 0;
     r.total += v; r.original += o; r.clientes.add(p.cliente_id);
     const f = r.faixas.find(x => dias <= x.ate) || r.faixas[3]; f.valor += v; f.qtd++;
-    if (p.data_vencimento >= d.inicioMes) { r.novo += o; r.novoQtd++; }
+    if (p.data_vencimento >= d.inicioMes && p.data_vencimento <= (d.fimPer || d.hojeISO)) { r.novo += o; r.novoQtd++; }
     const c = r.porCliente[p.cliente_id] || (r.porCliente[p.cliente_id] = { nome: p.razao_social || '—', qtd: 0, valor: 0, orig: 0, dias: 0 });
     c.orig += o; f.orig = (f.orig || 0) + o;   // v2.12.0: valor original por cliente e por faixa
     c.qtd++; c.valor += v; c.dias = Math.max(c.dias, dias);
@@ -7375,8 +7566,10 @@ function v23Calcular(d) {
     const venc = g.cob_parcelas && g.cob_parcelas.data_vencimento, rec = g.data_recebimento;
     if (g.criado_em && v23DataLocal(new Date(g.criado_em)) === d.hojeISO) r.baixasHoje++;
     if (!venc || !rec || rec <= venc) continue;
+    const fim = d.fimPer || d.hojeISO;   // v2.13.0
+    if (rec > fim) continue;
     const dias = Math.round((new Date(rec + 'T00:00:00') - new Date(venc + 'T00:00:00')) / 86400000);
-    r.atrasoSoma += dias; r.atrasoQtd++;
+    if (!d.per || d.per.todo || rec >= d.per.de) { r.atrasoSoma += dias; r.atrasoQtd++; }
     if (rec >= d.inicioMes) { r.rec += Number(g.valor_recebido) || 0; r.recQtd++; }
   }
   r.taxa = (r.rec + r.original) > 0 ? r.rec / (r.rec + r.original) : 0;
@@ -7415,15 +7608,22 @@ function v23Desenhar(d) {
     || '<span style="flex:1;background:none"></span>';
   $('v23Leg').innerHTML = r.faixas.map(f =>
     `<button type="button" onclick="v22Ir('navParcelas')" title="Valor atual ${v23Brl0(f.orig || 0)} · com multa e juros ${v23Brl0(f.valor)}"><b>${v23Brl0(f.valor)}</b><i style="background:${f.cor}"></i>${f.nome} · ${f.qtd} · atual ${v23Brl0(f.orig || 0)}${f.k === 'a4' && r.total ? ' · ' + Math.round(f.valor / tot * 100) + '% da carteira' : ''}</button>`).join('');
+  // v2.13.0: rótulos conforme o período
+  const per = d.per || { todo: true, rotKpi: 'no mês', ate: d.hojeISO };
+  const rotPer = per.todo ? (per.ate === d.hojeISO ? 'tudo até hoje' : 'tudo até ' + autoFmtData(per.ate)) : autoFmtData(per.de) + ' a ' + autoFmtData(per.ate);
+  const rp = $('v2130DashRot'); if (rp) rp.textContent = `Carteira em atraso: vencidos ${per.todo ? 'até ' + autoFmtData(per.ate) : 'de ' + rotPer} · recuperado e novo atraso ${per.todo ? 'do mês atual' : 'do período'}`;
+  $('v2130LbRec').textContent = 'Recuperado ' + per.rotKpi; $('v2130LbNovo').textContent = 'Novo atraso ' + per.rotKpi;
   $('v23Rec').textContent = v23Brl0(r.rec);
-  $('v23RecFt').textContent = r.recQtd + ' pagamento(s) em atraso no mês · ' + r.baixasHoje + ' baixa(s) hoje';
+  $('v23RecFt').textContent = r.recQtd + ' pagamento(s) em atraso ' + per.rotKpi + ' · ' + r.baixasHoje + ' baixa(s) hoje';
   $('v23Novo').textContent = v23Brl0(r.novo);
-  $('v23NovoFt').textContent = r.novoQtd + ' parcela(s) vencida(s) neste mês';
+  $('v23NovoFt').textContent = r.novoQtd + ' parcela(s) vencida(s) ' + (per.todo ? 'neste mês' : 'no período') + ' e ainda em aberto';
   const pct = Math.round(r.taxa * 100);
   $('v23Taxa').textContent = pct + '%';
   $('v23Ring').setAttribute('stroke-dasharray', (138.2 * r.taxa).toFixed(1) + ' 138.2');
   $('v23Medio').textContent = r.medio == null ? '—' : r.medio + ' dias';
-  $('v23MedioFt').textContent = r.atrasoQtd ? r.atrasoQtd + ' pagamento(s) em atraso, últimos 90 dias' : 'sem pagamentos em atraso nos últimos 90 dias';
+  $('v23TaxaFt').textContent = per.rotKpi;
+  const jan = per.todo ? 'últimos 90 dias' : 'no período';   // v2.13.0
+  $('v23MedioFt').textContent = r.atrasoQtd ? r.atrasoQtd + ' pagamento(s) em atraso, ' + jan : 'sem pagamentos em atraso ' + (per.todo ? 'nos últimos 90 dias' : 'no período');
 
   const feitos = r.passos.filter(p => p.feito).length, atual = (r.passos.find(p => !p.feito) || {}).n;
   $('v23RotPg').textContent = feitos + ' de 5 etapas concluídas';
@@ -7677,9 +7877,13 @@ function v24Prioridades(d, r) {
 }
 
 function v24Grafico(d) {
-  const hoje = new Date(d.hojeISO + 'T00:00:00'), dias = [];
-  for (let k = 29; k >= 0; k--) { const x = new Date(hoje); x.setDate(x.getDate() - k); dias.push(v23DataLocal(x)); }
-  const idx = Object.fromEntries(dias.map((s, i) => [s, i])), rec = Array(30).fill(0), novo = Array(30).fill(0);
+  // v2.13.0: eixo do período escolhido (até 120 dias); "Até hoje" ou período maior = 30 dias até a data final
+  const fim = new Date((d.fimPer || d.hojeISO) + 'T00:00:00'), dias = [];
+  let n = 30;
+  if (d.per && !d.per.todo) { const span = Math.round((fim - new Date(d.per.de + 'T00:00:00')) / 86400000) + 1; if (span >= 2 && span <= 120) n = span; }
+  for (let k = n - 1; k >= 0; k--) { const x = new Date(fim); x.setDate(x.getDate() - k); dias.push(v23DataLocal(x)); }
+  const rg = document.getElementById('v2130GrafRot'); if (rg) rg.textContent = ((d.per && !d.per.todo) || dias[n - 1] !== d.hojeISO ? autoFmtData(dias[0]) + ' a ' + autoFmtData(dias[n - 1]) : 'últimos 30 dias') + ', acumulado';
+  const idx = Object.fromEntries(dias.map((s, i) => [s, i])), rec = Array(n).fill(0), novo = Array(n).fill(0);
   d.pagamentos.forEach(g => {
     const v = g.cob_parcelas && g.cob_parcelas.data_vencimento;
     if (v && g.data_recebimento > v && idx[g.data_recebimento] != null) rec[idx[g.data_recebimento]] += Number(g.valor_recebido) || 0;
@@ -7688,10 +7892,10 @@ function v24Grafico(d) {
   d.abertas.forEach(p => { if (idx[p.data_vencimento] != null) novo[idx[p.data_vencimento]] += Number(p.valor_original) || 0; });
   const acum = a => a.reduce((o, v, i) => (o.push((o[i - 1] || 0) + v), o), []);
   const R = acum(rec), N = acum(novo), max = Math.max(1, ...R, ...N), W = 520, H = 190;
-  const pts = a => a.map((v, i) => [(i / 29 * W).toFixed(1), (H - 8 - v / max * (H - 24)).toFixed(1)]);
+  const pts = a => a.map((v, i) => [(i / (n - 1) * W).toFixed(1), (H - 8 - v / max * (H - 24)).toFixed(1)]);
   const linha = a => pts(a).map((p, i) => (i ? 'L' : 'M') + p[0] + ' ' + p[1]).join(' ');
   const area = a => linha(a) + ` L${W} ${H} L0 ${H}Z`;
-  const ultR = pts(R)[29];
+  const ultR = pts(R)[n - 1];
   document.getElementById('v24Graf').innerHTML = `<svg width="100%" height="${H}" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Recuperado e novo atraso acumulados nos últimos 30 dias">
     <defs><linearGradient id="v24ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18B7F0" stop-opacity=".38"/><stop offset="1" stop-color="#18B7F0" stop-opacity="0"/></linearGradient>
     <linearGradient id="v24gr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E3262E" stop-opacity=".16"/><stop offset="1" stop-color="#E3262E" stop-opacity="0"/></linearGradient></defs>
@@ -7699,9 +7903,9 @@ function v24Grafico(d) {
     <path d="${area(N)}" fill="url(#v24gr)"/><path d="${linha(N)}" fill="none" stroke="#E3262E" stroke-width="2" vector-effect="non-scaling-stroke"/>
     <path d="${area(R)}" fill="url(#v24ga)"/><path d="${linha(R)}" fill="none" stroke="#18B7F0" stroke-width="2.5" vector-effect="non-scaling-stroke" style="filter:drop-shadow(0 0 6px rgba(24,183,240,.7))"/>
     <circle cx="${ultR[0]}" cy="${ultR[1]}" r="4" fill="#18B7F0"/></svg>`;
-  document.getElementById('v24GrafFt').innerHTML = [0, 7, 14, 21, 29].map(i => `<span>${dias[i].slice(8, 10)}/${dias[i].slice(5, 7)}</span>`).join('');
-  const saldo = R[29] - N[29];
-  document.getElementById('v24GrafRes').innerHTML = `<div>Recuperado<b style="color:#7FD6F7">${v23Brl0(R[29])}</b></div><div>Novo atraso<b style="color:#FF6A70">${v23Brl0(N[29])}</b></div><div>Diferença<b style="color:${saldo >= 0 ? '#7FD6F7' : '#FF6A70'}">${(saldo >= 0 ? '+ ' : '− ') + v23Brl0(Math.abs(saldo))}</b></div>`;
+  document.getElementById('v24GrafFt').innerHTML = [0, 0.25, 0.5, 0.75, 1].map(f => Math.round(f * (n - 1))).map(i => `<span>${dias[i].slice(8, 10)}/${dias[i].slice(5, 7)}</span>`).join('');
+  const saldo = R[n - 1] - N[n - 1];
+  document.getElementById('v24GrafRes').innerHTML = `<div>Recuperado<b style="color:#7FD6F7">${v23Brl0(R[n - 1])}</b></div><div>Novo atraso<b style="color:#FF6A70">${v23Brl0(N[n - 1])}</b></div><div>Diferença<b style="color:${saldo >= 0 ? '#7FD6F7' : '#FF6A70'}">${(saldo >= 0 ? '+ ' : '− ') + v23Brl0(Math.abs(saldo))}</b></div>`;
 }
 
 function v24Canais(d, r) {
@@ -10013,9 +10217,19 @@ async function abrirRelatorios() {
   ocultarTodosPaineis();
   document.getElementById('cardRelatorios').style.display = 'block';
   document.getElementById('navRelatorios').classList.add('active');
+  let aba = 'abertos'; try { aba = localStorage.getItem('cobpro.relAba') || 'abertos'; } catch (e) { /* padrão */ }
+  v2130RelAba(aba);   // v2.13.0
   for (let i = 1; i <= 5; i++) document.getElementById('nav' + i).classList.remove('active');
   if (typeof v22Sincronizar === 'function') v22Sincronizar();
   await v26RelCarregar();
+}
+// v2.13.0: abas dos relatórios (lembra a última aba usada neste navegador)
+function v2130RelAba(aba) {
+  const abas = ['abertos', 'envios', 'recebimentos', 'geral'];
+  if (!abas.includes(aba)) aba = 'abertos';
+  document.querySelectorAll('#cardRelatorios .v2130-aba').forEach(d => { d.style.display = d.dataset.aba === aba ? '' : 'none'; });
+  document.querySelectorAll('#cardRelatorios .v2130-tabs button').forEach(b => { const on = b.dataset.aba === aba; b.classList.toggle('on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
+  try { localStorage.setItem('cobpro.relAba', aba); } catch (e) { /* sem armazenamento: segue sem lembrar */ }
 }
 // v2.12.0: a parte de erros saiu de Relatórios e virou a aba Erros
 async function abrirErros() {
@@ -10276,7 +10490,7 @@ async function v211Carregar() {
   try {
     const [abertas, enc] = await Promise.all([
       v23Paginar(() => {
-        let q = supabaseClient.from('cob_parcelas').select('id, cliente_id, documento, nosso_numero, valor_original, data_vencimento, cob_clientes(razao_social)')
+        let q = supabaseClient.from('cob_parcelas').select('id, cliente_id, documento, nosso_numero, valor_original, data_vencimento, cob_clientes(razao_social, cnpj)')
           .eq('tenant_id', tenantIdAtual).eq('status', 'aberta');
         if (de) q = q.gte('data_vencimento', de);
         if (ate) q = q.lte('data_vencimento', ate);
@@ -10292,15 +10506,34 @@ async function v211Carregar() {
     const linhas = (abertas || []).map(p => {
       const e = encPor.get(p.id), dias = Math.round((new Date(p.data_vencimento + 'T00:00:00') - h0) / 86400000);
       const atraso = p.data_vencimento < hoje;
-      return { id: p.id, cliente: p.cob_clientes?.razao_social || '—', numero: p.documento || p.nosso_numero || '', nosso: p.nosso_numero || '', venc: p.data_vencimento,
+      return { id: p.id, clienteId: p.cliente_id, cliente: p.cob_clientes?.razao_social || '—', cnpj: p.cob_clientes?.cnpj || '', numero: p.documento || p.nosso_numero || '', nosso: p.nosso_numero || '', venc: p.data_vencimento,
         atraso, dias: atraso ? (e && e.dias_atraso != null ? Number(e.dias_atraso) : -dias) : dias,
         original: Number(p.valor_original) || 0, atualizado: atraso && e && e.valor_atualizado != null ? Number(e.valor_atualizado) : Number(p.valor_original) || 0 };
     });
-    const at = linhas.filter(l => l.atraso), av = linhas.filter(l => !l.atraso), soma = (a, k) => a.reduce((s, l) => s + l[k], 0);
-    const clientes = new Set(linhas.map(l => l.cliente)).size;
     const rotSit = { todos: 'Todos em aberto', atraso: 'Em atraso', avencer: 'A vencer' }[sit];
     const rotPer = de || ate ? `vencimento ${de ? autoFmtData(de) : 'início'} a ${ate ? autoFmtData(ate) : 'sem limite'}` : 'qualquer vencimento';
-    v211 = { sit, rotSit, rotPer, linhas, geradoEm: new Date() };
+    v2130AbBase = { sit, rotSit, rotPer, linhas };   // v2.13.0: título, cliente e valor filtram sem nova leitura do banco
+    v2130AbDesenhar();
+  } catch (e) { corpo.innerHTML = '<div class="sub" style="color:var(--err)">Erro ao montar o relatório: ' + autoEsc(e.message || e) + '</div>'; console.error('[relatório v2.11.0]', e); }
+}
+var v2130AbBase = null;
+function v2130AbLimpar() { ['v2130AbTitulo', 'v2130AbCliente', 'v2130AbVmin', 'v2130AbVmax'].forEach(id => { document.getElementById(id).value = ''; }); v2130AbDesenhar(); }
+function v2130AbDesenhar() {   // v2.13.0
+  const corpo = document.getElementById('v211Corpo'), sub = document.getElementById('v211Sub'), base = v2130AbBase;
+  if (!corpo || !base) return;
+  const { rotSit, rotPer, sit } = base, el = id => document.getElementById(id);
+  const tit = el('v2130AbTitulo').value.trim().toLowerCase(), cli = el('v2130AbCliente').value.trim().toLowerCase(), cliDig = cli.replace(/\D/g, '');
+  const vmin = parseFloat(el('v2130AbVmin').value), vmax = parseFloat(el('v2130AbVmax').value), ordem = el('v2130AbOrdem').value;
+  let linhas = base.linhas.filter(l => (!tit || String(l.numero).toLowerCase().includes(tit) || String(l.nosso).toLowerCase().includes(tit))
+    && (!cli || l.cliente.toLowerCase().includes(cli) || (cliDig.length >= 4 && String(l.cnpj).includes(cliDig)))
+    && (isNaN(vmin) || l.atualizado >= vmin - 0.005) && (isNaN(vmax) || l.atualizado <= vmax + 0.005));
+  const ORD = { venc: (a, b) => (a.venc < b.venc ? -1 : a.venc > b.venc ? 1 : 0), valor: (a, b) => b.atualizado - a.atualizado,
+    atraso: (a, b) => (b.atraso ? b.dias : -9e9) - (a.atraso ? a.dias : -9e9), cliente: (a, b) => a.cliente.localeCompare(b.cliente, 'pt-BR') };
+  linhas = linhas.slice().sort(ORD[ordem] || ORD.venc);
+  const filtros = [tit && 'título "' + tit + '"', cli && 'cliente "' + cli + '"', !isNaN(vmin) && 'valor ≥ ' + autoFmt(vmin), !isNaN(vmax) && 'valor ≤ ' + autoFmt(vmax)].filter(Boolean).join(' · ');
+    const at = linhas.filter(l => l.atraso), av = linhas.filter(l => !l.atraso), soma = (a, k) => a.reduce((s, l) => s + l[k], 0);
+    const clientes = new Set(linhas.map(l => l.cliente)).size;
+    v211 = { sit, rotSit, rotPer: rotPer + (filtros ? ' · ' + filtros : ''), linhas, geradoEm: new Date() };
     const E = autoEsc;
     const kpi = (lb, vl, ft, cor) => `<div class="card"><div class="lb">${lb}</div><div class="vl"${cor ? ` style="color:${cor}"` : ''}>${vl}</div><div class="ft">${ft}</div></div>`;
     const kpis = `<div class="v26-kpi" style="margin-bottom:12px;">
@@ -10316,9 +10549,35 @@ async function v211Carregar() {
       </tbody><tfoot><tr><td colspan="4"><b>Total · ${linhas.length} boleto(s)</b></td><td class="num"><b>${autoFmt(soma(linhas, 'original'))}</b></td><td class="num"><b>${autoFmt(soma(linhas, 'atualizado'))}</b></td></tr></tfoot></table></div>
       ${linhas.length > MAX ? `<div class="sub" style="margin-top:6px;">Mostrando os ${MAX} primeiros por vencimento. O CSV traz todos os ${linhas.length}.</div>` : ''}`
       : '<div class="sub" style="padding:6px 0 4px;">Nenhum boleto em aberto com esse filtro.</div>';
-    corpo.innerHTML = kpis + tabela;
-    sub.textContent = `${rotSit} · ${rotPer} · gerado em ${new Date().toLocaleString('pt-BR')}`;
-  } catch (e) { corpo.innerHTML = '<div class="sub" style="color:var(--err)">Erro ao montar o relatório: ' + autoEsc(e.message || e) + '</div>'; console.error('[relatório v2.11.0]', e); }
+    corpo.innerHTML = kpis + v2130AbGraficos(linhas) + tabela;
+    sub.textContent = `${rotSit} · ${rotPer}${filtros ? ' · ' + filtros : ''} · ${linhas.length} de ${base.linhas.length} boleto(s) · gerado em ${new Date().toLocaleString('pt-BR')}`;
+}
+// v2.13.0: gráficos dos boletos filtrados — faixa de atraso, mês de vencimento, maiores clientes e faixa de valor
+function v2130AbGraficos(linhas) {
+  if (!linhas.length) return '';
+  const card = (t, sub, html) => `<div class="card" style="margin:0;"><h3 style="margin:0 0 6px;font-size:14px;">${t}<span style="display:block;font-size:12px;color:var(--muted);font-weight:500;">${sub}</span></h3>${html}</div>`;
+  const FX = [['A vencer', l => !l.atraso, '#18B7F0'], ['1–30 dias', l => l.atraso && l.dias <= 30, '#FFE45A'], ['31–60', l => l.atraso && l.dias > 30 && l.dias <= 60, '#F7A928'],
+    ['61–90', l => l.atraso && l.dias > 60 && l.dias <= 90, '#EE6A22'], ['+90 dias', l => l.atraso && l.dias > 90, '#E3262E']];
+  const fx = FX.map(([n, f]) => { const g = linhas.filter(f); return { n, v: g.reduce((s, l) => s + l.atualizado, 0), q: g.length }; });
+  const g1 = v26Barras(fx.map(x => x.n), [{ nome: 'Valor', cores: FX.map(x => x[2]), cor: '#F7A928', valores: fx.map(x => x.v), extra: fx.map(x => x.q + ' boleto(s)') }], { aria: 'Boletos por faixa de atraso', h: 190 });
+  const meses = [...new Set(linhas.map(l => l.venc.slice(0, 7)))].sort(), ult = meses.slice(-12);
+  const mAt = ult.map(m => linhas.filter(l => l.atraso && l.venc.slice(0, 7) === m).reduce((s, l) => s + l.atualizado, 0));
+  const mAv = ult.map(m => linhas.filter(l => !l.atraso && l.venc.slice(0, 7) === m).reduce((s, l) => s + l.atualizado, 0));
+  const g2 = `<div class="v24-leg"><span><i style="background:#E3262E"></i>Em atraso</span><span><i style="background:#18B7F0"></i>A vencer</span></div>`
+    + v26Barras(ult.map(v26MesRot), [{ nome: 'Em atraso', cor: '#E3262E', valores: mAt }, { nome: 'A vencer', cor: '#18B7F0', valores: mAv }], { aria: 'Boletos por mês de vencimento', h: 190 });
+  const porCli = {}; linhas.forEach(l => { const c = porCli[l.clienteId || l.cliente] || (porCli[l.clienteId || l.cliente] = { nome: l.cliente, v: 0, q: 0 }); c.v += l.atualizado; c.q++; });
+  const top = Object.values(porCli).sort((a, b) => b.v - a.v).slice(0, 10), maxC = Math.max(1, ...top.map(c => c.v));
+  const g3 = top.map(c => `<div style="display:grid;grid-template-columns:minmax(0,1fr) 110px;gap:8px;align-items:center;margin:5px 0;font-size:12.5px;">
+    <div><div style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;" title="${autoEsc(c.nome)}">${autoEsc(c.nome)} <span class="sub">· ${c.q}</span></div>
+    <div style="height:6px;border-radius:3px;background:rgba(255,255,255,.07);margin-top:3px;"><div style="height:6px;border-radius:3px;background:#E3262E;width:${(c.v / maxC * 100).toFixed(1)}%"></div></div></div>
+    <div class="num" style="text-align:right;"><b>${autoFmt(c.v)}</b></div></div>`).join('');
+  const FV = [['até R$ 500', 0, 500], ['500–1 mil', 500, 1000], ['1–5 mil', 1000, 5000], ['5–10 mil', 5000, 10000], ['+10 mil', 10000, Infinity]];
+  const fv = FV.map(([n, a, b]) => { const g = linhas.filter(l => l.atualizado > a && l.atualizado <= b || (a === 0 && l.atualizado <= b)); return { n, q: g.length, v: g.reduce((s, l) => s + l.atualizado, 0) }; });
+  const g4 = v26Barras(fv.map(x => x.n), [{ nome: 'Boletos', cor: '#A78BFA', valores: fv.map(x => x.q), extra: fv.map(x => autoFmt(x.v)) }], { fmt: v => String(Math.round(v)), aria: 'Boletos por faixa de valor', h: 190 });
+  return `<div class="v2130-graf">${card('Por faixa de atraso', 'valor atualizado (com multa e juros nos vencidos)', '<div class="v26-chart">' + g1 + '</div>')}
+    ${card('Por mês de vencimento', 'últimos 12 meses com boletos no filtro', '<div class="v26-chart">' + g2 + '</div>')}
+    ${card('Maiores clientes', '10 maiores saldos no filtro', g3)}
+    ${card('Por faixa de valor', 'quantidade de boletos', '<div class="v26-chart">' + g4 + '</div>')}</div>`;
 }
 function v211Csv() {
   if (!v211) { mostrarToast('Carregue o relatório primeiro.'); return; }
@@ -10544,7 +10803,7 @@ const V22_TELAS = {
   navBoletos:   { t: 'Boletos gerados',          g: 'Conferência',   sec: 'conferir', ir: () => abrirBoletos() },
   navClientes:  { t: 'Clientes',                 g: 'Cadastros',     sec: 'clientes', ir: () => abrirClientes() },
   navNotif:     { t: 'Modelos de mensagem',      g: 'Cadastros',     sec: 'clientes', ir: () => abrirNotificacoes() },
-  navRelatorios:{ t: 'Relatórios',               g: 'Análise',       sec: 'relatorios', ir: () => abrirRelatorios(), d: 'Envios, recebimentos, carteira e gráficos' },   // v2.6.0 · v2.12.0
+  navRelatorios:{ t: 'Relatórios',               g: 'Análise',       sec: 'relatorios', ir: () => abrirRelatorios(), d: 'Boletos em aberto, envios, recebimentos e gráficos' },   // v2.6.0 · v2.12.0
   navErros:     { t: 'Erros e diferenças',       g: 'Análise',       sec: 'erros',    ir: () => abrirErros(), d: 'Importações, falhas e diferenças Questor × app' },   // v2.12.0
   navAutomacao: { t: 'Robô e automação',         g: 'Sistema',       sec: 'robo',     ir: () => abrirAutomacao() },
   navConfig:    { t: 'Configurações',            g: 'Sistema',       sec: 'sistema',  ir: () => abrirConfig() },
