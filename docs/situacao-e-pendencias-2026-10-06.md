@@ -1,6 +1,9 @@
 # Cobrança Pro — onde paramos e o que falta fazer
 
-**Data:** 06/10/2026 · **Versão no ar:** v2.12.0 (GitHub Pages, publicada às 13:49)
+**Data:** 06/10/2026 · **Atualizado em 08/10/2026** · **Versão no ar:** v2.13.0
+
+> **08/10/2026 — v2.13.0 publicada:** busca de títulos em Parcelas (título, cliente, valor, vencimento), lançamento manual de boleto, relatórios em abas (Boletos em aberto com busca e gráficos, Envios de cobrança, Recebimentos, Visão geral) e seletor de período no Painel (padrão até hoje).
+> **Pendente:** a tabela de classificação de clientes (para ligar com o projeto Propostas) não chegou — reenviar.
 
 ---
 
