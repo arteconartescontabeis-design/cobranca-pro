@@ -9417,11 +9417,13 @@ async function processarArquivoConfronto(file) {
     renderConfronto();
     // v2.14.0: boleto que está no relatório do Questor e não está no app é lançado a partir do próprio relatório
     // (o cadastro refaz o cruzamento e grava o snapshot já sem esses títulos)
-    if (!MODO_TESTE && confrontoAtual.soRelatorio.length) {
-      const n = confrontoAtual.soRelatorio.length;
-      mostrarToast(`Lançando no app ${n} título(s) que só estão no relatório do Questor...`);
-      v2140AutoLanc = { n, titulos: confrontoAtual.soRelatorio.map(t => t.numero) };
-      await cadastrarTitulosConfronto(confrontoAtual.soRelatorio.slice());
+    // (só quando o relatório foi lido sem avisos; com avisos, o lançamento fica no botão "Cadastrar", por conferência)
+    if (!MODO_TESTE && confrontoAtual.soRelatorio.length && !(rel.avisos && rel.avisos.length)) {
+      const lista = confrontoAtual.soRelatorio.slice();
+      mostrarToast(`Lançando no app ${lista.length} título(s) que só estão no relatório do Questor...`);
+      // grava o snapshot antes (o semáforo nunca fica sem o confronto do dia) e de novo depois do lançamento
+      await autoRegistrarConfronto(file, rel, confrontoAtual).catch(e => console.warn('[confronto] snapshot não gravado:', e.message));
+      await cadastrarTitulosConfronto(lista, { auto: true });
       return;
     }
     // v2.0.0: grava o snapshot do confronto no banco (alimenta o semáforo de liberação)
@@ -9544,8 +9546,9 @@ async function cadastrarFaltantesConfronto() {
   await cadastrarTitulosConfronto(confrontoAtual.soRelatorio.slice());
 }
 
-async function cadastrarTitulosConfronto(titulos) {
+async function cadastrarTitulosConfronto(titulos, opcoes) {
   const itens = titulos.map(tituloParaItemImportacao);
+  const auto = !!(opcoes && opcoes.auto);   // v2.14.0
   try {
     if (MODO_TESTE) {
       itens.forEach((it, i) => MOCK.parcelas.push({
@@ -9558,6 +9561,7 @@ async function cadastrarTitulosConfronto(titulos) {
       mostrarToast(`Cadastrando ${itens.length} título(s)...`);
       const res = await dataImportarRemessa(itens, 'Confrontamento ' + hojeLocal(), null, 'confrontamento');
       mostrarToast(`✓ ${res.parcelasImportadas} parcela(s) cadastradas · ${res.novosClientes} cliente(s) novo(s).`);
+      if (auto) v2140AutoLanc = { n: res.parcelasImportadas, titulos: titulos.map(t => t.numero) };   // v2.14.0: número real lançado
       if (res.ambiguos && res.ambiguos.length) await v292ResolverAmbiguos(titulos, res.ambiguos);   // v2.9.2: escolhe o cliente
     }
     // Refaz o cruzamento com a base atualizada
@@ -9568,6 +9572,9 @@ async function cadastrarTitulosConfronto(titulos) {
     if (!MODO_TESTE && v2140ConfArquivo) autoRegistrarConfronto(v2140ConfArquivo, confrontoRelatorio, confrontoAtual).catch(e => console.warn('[confronto] snapshot não gravado:', e.message));
   } catch (e) {
     mostrarToast('Erro ao cadastrar: ' + e.message);
+    if (auto) v2140AutoLanc = null;   // v2.14.0: não anuncia lançamento que não aconteceu
+    // v2.14.0: mesmo com falha, o confronto do dia fica gravado (o semáforo depende dele)
+    if (!MODO_TESTE && v2140ConfArquivo && confrontoRelatorio && confrontoAtual) autoRegistrarConfronto(v2140ConfArquivo, confrontoRelatorio, confrontoAtual).catch(er => console.warn('[confronto] snapshot não gravado:', er.message));
   }
 }
 
@@ -10517,9 +10524,15 @@ async function v2101Carregar() {
 }
 // v2.14.0: lança no app os títulos que o último confronto (app ou robô) achou só no relatório do Questor
 async function v2140LancarSoQuestor() {
-  const k = v2101 && v2101.confronto, sr = ((k && k.detalhe) || {}).so_relatorio || [];
-  if (!sr.length) { mostrarToast('Nada para lançar.'); return; }
-  if (!confirm(`Lançar no app ${sr.length} título(s) que constam no relatório do Questor e não existem no app?\n\nEles entram como parcelas em aberto (origem: confrontamento).`)) return;
+  const k = v2101 && v2101.confronto, sr0 = ((k && k.detalhe) || {}).so_relatorio || [];
+  if (!sr0.length) { mostrarToast('Nada para lançar.'); return; }
+  let sr;
+  try {   // o confronto pode ser antigo: só lança o que continua sem parcela no app hoje (evita duplicar com remessa importada depois)
+    const parcelas = await dataFetchTodasParcelas();
+    sr = confrontarBoletos(sr0.map(x => ({ ...x, chave: confrontoChaveDoc(x.numero), valorDevido: Number(x.valorDevido) || 0 })), parcelas, 0.01).soRelatorio;
+  } catch (e) { mostrarToast('Não foi possível conferir as parcelas atuais: ' + (e.message || e)); return; }
+  if (!sr.length) { mostrarToast(`Os ${sr0.length} título(s) já existem no app. Peça "Conferir agora com o Questor" para atualizar o confronto.`); v2101Carregar(); return; }
+  if (!confirm(`Lançar no app ${sr.length} título(s) que constam no relatório do Questor e não existem no app?${sr0.length > sr.length ? `\n(${sr0.length - sr.length} do confronto já foram lançados desde então e ficam de fora.)` : ''}\n\nEles entram como parcelas em aberto (origem: confrontamento).`)) return;
   try {
     const itens = sr.map(x => tituloParaItemImportacao({ numero: x.numero, cliente: x.cliente, codigoCliente: x.codigoCliente, vencimento: x.vencimento, valorDevido: Number(x.valorDevido) || 0, total: Number(x.total) || Number(x.valorDevido) || 0 }));
     const res = await dataImportarRemessa(itens, 'Confrontamento ' + hojeLocal(), null, 'confrontamento');
