@@ -26,7 +26,7 @@ App de cobrança da **Artecon** (escritório contábil). Tudo em português.
 - Credenciais da Sicredi **nunca** no `index.html` nem em commit: cofre do Windows do servidor ou Vault do Supabase.
 
 ## Regras
-- Cobrança em 3 níveis (`v2140Nivel`, pelo `diasAtrasoMax` do cliente): 1º até 29 dias, 2º 30–59 (aviso de suspensão), 3º 60+ (serviços suspensos). Textos em `V2140_NIVEIS`/`v2140Nivel`.
+- Cobrança em 3 níveis (`v2140Nivel`, pelo `diasAtrasoMax` do cliente): 1º até 29 dias, 2º 30–59 (aviso de suspensão), 3º 60+ (serviços suspensos). Textos em `V2140_NIVEIS`/`v2140Nivel`. 2º e 3º só saem se liberados em Configurações (`cob_politicas.nivel2_liberado`/`nivel3_liberado`, `v2160Niveis`, v2.16.0); bloqueado ou erro de leitura = cobrança normal (1º).
 - Relatório de clientes suspensos por e-mail só para `@artecon.cnt.br` (dados de clientes).
 - Modo de teste (`cob_politicas.teste_*`): em dúvida, **bloquear envio** — nunca tratar erro como "teste desligado".
 - Todo dado do banco/arquivo que vai para `innerHTML` passa por `autoEsc`; nada de dado em `onclick="…'${x}'…"` sem `autoEsc(JSON.stringify(x))`.
