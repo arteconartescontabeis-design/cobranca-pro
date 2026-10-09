@@ -1020,7 +1020,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
           <div><label for="v2130LancVenc">Vencimento</label><input type="date" id="v2130LancVenc"></div>
         </div>
         <div style="margin-bottom:18px;">
-          <label for="v2130LancObs">Observação <span style="text-transform:none;font-weight:400;">(motivo do lançamento)</span></label>
+          <label for="v2130LancObs">Observação <span id="v2150LancObsRot" style="text-transform:none;font-weight:400;">(motivo do lançamento)</span></label>
           <input type="text" id="v2130LancObs" placeholder="ex.: boleto avulso emitido no banco" maxlength="200">
         </div>
         <div class="v25-erro" id="v2130LancErro" role="alert"></div>
@@ -5983,7 +5983,7 @@ async function carregarParcelas() {
     } catch (error) { mostrarToast('Erro ao carregar parcelas: ' + error.message); return; }
     parcelasLista = (data || []).map(p => ({
       id: p.id, clienteId: p.cliente_id, razaoSocial: p.cob_clientes?.razao_social || '—', cnpj: p.cob_clientes?.cnpj || '',
-      documento: p.documento || p.nosso_numero, nossoNumero: p.nosso_numero, origem: p.origem || '',
+      documento: p.documento || p.nosso_numero, nossoNumero: p.nosso_numero, origem: p.origem || '', documentoBd: p.documento || '',   // v2.15.0: documento como está no banco (pode ser vazio)
       valor: Number(p.valor_original) || 0, vencimento: p.data_vencimento, status: p.status,
     }));
   }
@@ -6055,7 +6055,8 @@ function filtrarParcelas() {
     </tr>`;
   }).join('') + (filtradas.length > 300
     ? '<tr><td colspan="9" style="text-align:center;color:var(--muted);">… mostrando as primeiras 300. Refine a busca.</td></tr>' : '');
-  if (v2150Sel && !filtradas.slice(0, 300).some(p => p.id === v2150Sel)) v2150Selecionar(null);   // v2.15.0: seleção saiu do filtro
+  const iSel = filtradas.slice(0, 300).findIndex(p => p.id === v2150Sel);   // v2.15.0: botões seguem a seleção (saiu do filtro, foi paga, excluída…)
+  v2150Selecionar(iSel < 0 ? null : parcelasLista.indexOf(filtradas[iSel]));
 }
 /* ── v2.13.0: lançamento manual de boleto (fora da remessa) ── */
 let v2130Clientes = null;
@@ -6068,6 +6069,7 @@ async function v2130AbrirLancar(edicao) {
   document.getElementById('v2150LancSub').textContent = v2150Edit ? 'Corrija os dados do boleto em aberto. A alteração fica registrada no histórico do cliente, com o valor de antes e o de depois. Só diretor.'
     : 'Para boleto emitido fora da remessa (.CRM). Entra como parcela em aberto e passa a ser cobrado e conferido no retorno e no confronto.';
   document.getElementById('v2130LancSalvar').textContent = v2150Edit ? 'Salvar alteração' : 'Lançar boleto';
+  document.getElementById('v2150LancObsRot').textContent = v2150Edit ? '(motivo da alteração)' : '(motivo do lançamento)';
   v2130LancErro('');
   document.getElementById('v2130ModalLancar').style.display = 'flex';
   if (MODO_TESTE) { v2130Clientes = [{ id: 'c1', razao_social: 'Cliente Teste Ltda', cnpj: '12345678000199' }]; }
@@ -6080,8 +6082,8 @@ async function v2130AbrirLancar(edicao) {
   if (v2150Edit) {   // v2.15.0: preenche com os dados atuais
     const c = v2130Clientes.find(x => x.id === v2150Edit.clienteId);
     document.getElementById('v2130LancCli').value = c ? v2130RotCli(c) : v2150Edit.razaoSocial;
-    document.getElementById('v2130LancDoc').value = v2150Edit.documento || '';
-    document.getElementById('v2130LancNosso').value = v2150Edit.nossoNumero && v2150Edit.nossoNumero !== v2150Edit.documento ? v2150Edit.nossoNumero : '';
+    document.getElementById('v2130LancDoc').value = v2150Edit.documentoBd != null ? v2150Edit.documentoBd : (v2150Edit.documento || '');
+    document.getElementById('v2130LancNosso').value = v2150Edit.nossoNumero || '';   // sempre o nosso número real: o retorno do banco acha o boleto por ele
     document.getElementById('v2130LancValor').value = Number(v2150Edit.valor).toFixed(2);
     document.getElementById('v2130LancVenc').value = v2150Edit.vencimento;
   }
@@ -6094,17 +6096,20 @@ async function v2130SalvarLancar() {
   const txt = document.getElementById('v2130LancCli').value.trim();
   const cli = (v2130Clientes || []).find(c => v2130RotCli(c) === txt)
     || ((v2130Clientes || []).filter(c => String(c.razao_social).toLowerCase() === txt.toLowerCase()).length === 1 ? v2130Clientes.find(c => String(c.razao_social).toLowerCase() === txt.toLowerCase()) : null);
-  const doc = document.getElementById('v2130LancDoc').value.trim().toUpperCase();
-  const nosso = document.getElementById('v2130LancNosso').value.trim().toUpperCase() || doc;
+  const ed = v2150Edit;   // v2.15.0: ao alterar, número que não mudou não é revalidado nem convertido
+  const doc0 = document.getElementById('v2130LancDoc').value.trim(), nosso0 = document.getElementById('v2130LancNosso').value.trim();
+  const doc = ed && doc0 === (ed.documentoBd != null ? ed.documentoBd : ed.documento) ? doc0 : doc0.toUpperCase();
+  const nosso = ed ? (nosso0 === ed.nossoNumero ? nosso0 : nosso0.toUpperCase()) : (nosso0.toUpperCase() || doc);
   const valor = Math.round(parseFloat(document.getElementById('v2130LancValor').value) * 100) / 100;
   const venc = document.getElementById('v2130LancVenc').value;
   const obs = document.getElementById('v2130LancObs').value.trim();
   if (!cli) return v2130LancErro('Escolha o cliente na lista (digite parte do nome ou do CNPJ).');
-  if (!doc || !/^[A-Z0-9][A-Z0-9./-]{1,29}$/.test(doc)) return v2130LancErro('Informe o número do documento (letras, números, ponto, barra ou hífen).');
-  if (!/^[A-Z0-9][A-Z0-9./-]{1,29}$/.test(nosso)) return v2130LancErro('Nosso número inválido.');
+  const docMudou = !ed || doc !== (ed.documentoBd != null ? ed.documentoBd : ed.documento), nossoMudou = !ed || nosso !== ed.nossoNumero;
+  if (docMudou && (!doc || !/^[A-Z0-9][A-Z0-9./-]{1,29}$/.test(doc))) return v2130LancErro('Informe o número do documento (letras, números, ponto, barra ou hífen).');
+  if (nossoMudou && !/^[A-Z0-9][A-Z0-9./-]{1,29}$/.test(nosso)) return v2130LancErro('Nosso número inválido.');
   if (!(valor > 0)) return v2130LancErro('Informe um valor maior que zero.');
   if (!/^\d{4}-\d{2}-\d{2}$/.test(venc)) return v2130LancErro('Informe o vencimento.');
-  if (obs.length < 5) return v2130LancErro('Informe o motivo do lançamento (mínimo 5 caracteres).');
+  if (obs.length < 5) return v2130LancErro('Informe o motivo ' + (ed ? 'da alteração' : 'do lançamento') + ' (mínimo 5 caracteres).');
   if (v2150Edit) return v2150SalvarAlteracao({ cli, doc, nosso, valor, venc, obs });   // v2.15.0
   if (!confirm(`Lançar o boleto ${doc} de ${cli.razao_social}\nValor R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} · vencimento ${autoFmtData(venc)}?`)) return;
   if (MODO_TESTE) { v2130FecharLancar(); mostrarToast('(teste) boleto lançado.'); return; }
@@ -6148,17 +6153,20 @@ function v2150Selecionada() {
 function v2150AbrirAlterar() { const p = v2150Selecionada(); if (p) v2130AbrirLancar({ ...p }); }
 async function v2150SalvarAlteracao({ cli, doc, nosso, valor, venc, obs }) {
   const a = v2150Edit, depois = { cliente_id: cli.id, documento: doc, nosso_numero: nosso, valor_original: valor, data_vencimento: venc };
-  const antes = { cliente_id: a.clienteId, documento: a.documento, nosso_numero: a.nossoNumero, valor_original: Number(a.valor), data_vencimento: a.vencimento };
+  const antes = { cliente_id: a.clienteId, documento: a.documentoBd != null ? a.documentoBd : a.documento, nosso_numero: a.nossoNumero, valor_original: Number(a.valor), data_vencimento: a.vencimento };
   const mudou = Object.keys(depois).filter(k => String(depois[k]) !== String(antes[k]));
   if (!mudou.length) return v2130LancErro('Nada foi alterado.');
   const ROT = { cliente_id: 'cliente', documento: 'documento', nosso_numero: 'nosso número', valor_original: 'valor', data_vencimento: 'vencimento' };
-  if (!confirm(`Alterar o boleto ${a.documento} (${a.razaoSocial})?\n\nMuda: ${mudou.map(k => ROT[k]).join(', ')}.\nMotivo: ${obs}`)) return;
+  const avisoNosso = mudou.includes('nosso_numero') && a.origem !== 'manual'
+    ? `\n\n⚠️ Nosso número de boleto que veio da remessa: o retorno do banco só reconhece o pagamento se o número novo for o do banco.` : '';
+  if (!confirm(`Alterar o boleto ${a.documento} (${a.razaoSocial})?\n\nMuda: ${mudou.map(k => ROT[k]).join(', ')}.\nMotivo: ${obs}${avisoNosso}`)) return;
   if (MODO_TESTE) { v2130FecharLancar(); mostrarToast('(teste) boleto alterado.'); return; }
   const btn = document.getElementById('v2130LancSalvar'); btn.disabled = true; v2130LancErro('');
   try {
     if (mudou.includes('documento') || mudou.includes('nosso_numero')) {   // número novo não pode existir em outro boleto
+      const filtro = [`nosso_numero.eq.${nosso}`, `documento.eq.${nosso}`].concat(doc ? [`documento.eq.${doc}`, `nosso_numero.eq.${doc}`] : []).join(',');
       const { data: dup, error: eDup } = await supabaseClient.from('cob_parcelas').select('id, documento, nosso_numero')
-        .eq('tenant_id', tenantIdAtual).neq('id', a.id).or(`nosso_numero.eq.${nosso},documento.eq.${doc},nosso_numero.eq.${doc}`).limit(1);
+        .eq('tenant_id', tenantIdAtual).neq('id', a.id).or(filtro).limit(1);
       if (eDup) throw eDup;
       if (dup && dup.length) throw new Error(`o número ${dup[0].documento || dup[0].nosso_numero} já existe em outro boleto do app.`);
     }
@@ -6167,13 +6175,19 @@ async function v2150SalvarAlteracao({ cli, doc, nosso, valor, venc, obs }) {
     const { data, error } = await supabaseClient.from('cob_parcelas').update(alt).eq('tenant_id', tenantIdAtual).eq('id', a.id).eq('status', 'aberta').select('id');
     if (error) throw error;
     if (!data || !data.length) throw new Error('o boleto não está mais em aberto (atualize a lista).');
-    if (mudou.includes('nosso_numero') || mudou.includes('cliente_id'))   // o retorno do banco reconhece o boleto pelo nosso número
-      await supabaseClient.from('cob_clientes_codigos_legados').upsert({ tenant_id: tenantIdAtual, cliente_id: cli.id, nosso_numero: nosso }, { onConflict: 'tenant_id,nosso_numero' });
+    let eLeg = null;
+    if (mudou.includes('nosso_numero') || mudou.includes('cliente_id')) {   // o retorno do banco reconhece o boleto pelo nosso número
+      const { data: leg, error: eL } = await supabaseClient.from('cob_clientes_codigos_legados').select('cliente_id').eq('tenant_id', tenantIdAtual).eq('nosso_numero', nosso).limit(1);
+      if (eL) eLeg = eL;
+      else if (leg && leg.length && leg[0].cliente_id !== cli.id && !(nosso === a.nossoNumero && leg[0].cliente_id === a.clienteId))
+        eLeg = { message: `o nosso número ${nosso} está ligado a outro cliente na tabela de códigos — confira antes do próximo retorno` };
+      else ({ error: eLeg } = await supabaseClient.from('cob_clientes_codigos_legados').upsert({ tenant_id: tenantIdAtual, cliente_id: cli.id, nosso_numero: nosso }, { onConflict: 'tenant_id,nosso_numero' }));
+    }
     const { error: eEv } = await supabaseClient.from('cob_eventos').insert({ tenant_id: tenantIdAtual, cliente_id: cli.id, parcela_id: a.id, tipo: 'parcela_alterada',
       detalhe: { motivo: obs, campos: mudou, antes, depois } });
     v2130FecharLancar(); v2150Edit = null;
     await carregarParcelas();
-    mostrarToast(`✅ Boleto ${doc} alterado (${mudou.map(k => ROT[k]).join(', ')}).` + (eEv ? ' (o registro no histórico falhou: ' + eEv.message + ')' : ''));
+    mostrarToast(`✅ Boleto ${doc || nosso} alterado (${mudou.map(k => ROT[k]).join(', ')}).` + (eEv ? ' (o registro no histórico falhou: ' + eEv.message + ')' : '') + (eLeg ? ' (aviso: ' + eLeg.message + ')' : ''));
   } catch (e) { v2130LancErro('Não foi alterado: ' + (e.message || e)); }
   finally { btn.disabled = false; }
 }
