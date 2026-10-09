@@ -451,6 +451,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
 .v23-duo .v23-enc .ev{font:600 clamp(22px,2.2vw,30px)/1 var(--display);color:#F7A928;white-space:nowrap}
 .v23-top .vo{font:600 16px/1 var(--display);color:var(--muted)}
 .v23-top .ve{font:600 15px/1 var(--display);color:#F7A928}
+#tabelaParcelas tr.v2150-sel td{background:rgba(24,183,240,.08)}
 .v2130-per{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 .v2130-per .lb{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
 .v2130-per select,.v2130-per input{width:auto;padding:7px 10px}
@@ -608,7 +609,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
     <div class="logo">
       <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAADZCAMAAAA5QZbuAAAA/1BMVEViXFjk3+GwaGnw5CerPELcmp2YMDMMlNFweoGjmpvEWVzIfILkvcGIcTszeJfjw729wMG9vsAuhKt3ho54NziVjzmhm1zLgX5+fDy4e4Tr4UgAAAA6X2nDOUTEvz/7/v5gYGJYWVteXmCyKi3t5+jU1dfGyMmzMzSTlJaIiYthXmJ2dnhdYGO0tbfBLTGmp6ixR0rBMTPtycry1te0VVfIdXfNh4rSlZe5Zmjnt7jYpqjbtLXEZ2qSRkmWKCvlqqwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADADA5KAAAAQHRSTlP/////////////////////////////////////////////////////////////////////////////////////73leyQAAIslJREFUeNrtnYl6o7iygG2f2DdbT3dPz1nvEiTEZowhxnu8vP9bXW2AVowdk63RN2fOJI5Bql8qVZVKUu+pKx+q9DoRfBYgyFNK+5VBHY8aIL96QC5+2zjS2OuA2IHcAkcqLQPphw5w+h0QKxAUq0CSFqvhhRDASQekBkjfgc4YF44DOiBtrRJ+BAB9RzeJ2IF4FIg4QsKWpo4kBoBD74DYgfiSxoIYSNTSTM5wQNgBqQXyU5lCHBC3MXU45ejoRkg9kIQKajLh4sJziHP9uWNCcOCJCr9l3AGpB3KnjZDri+sHZLjHdIB0QGqBhCoQ6FzdbfOh8oYOiB1IpAJxHL8D8o5AYg0I7IC8IxCkjY8WXPUOyBlAdI11fVe9A9IciAcKc7dFV70D0hwIdtQlGh2QdwaC/UIIFSBRB+T9gKSgcNZajJ10QJoDwX4h+OUAGQjqgLwbEOwXgjAGUJJXvwPybkCwXwhSxVsHXgfkfYEo8ayrr6p3QBoDQXj6AEnaAfkoQMgCLvAT0G7spAPSGIg/HuMpwwftxk46II2B/CAo+h5o11XvgDQGgpUVcFAftOuqd0AaA8HTOXbMlZDv1V31DkhjIMRRv8W2FpRX1Tsg7wWEOOqRmk56dYF1QBoDuaVAnn4pQPqtAJng0uv1nHEHxAaEDA1iU6mZDt61gYzHmATngYF0ydY2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" alt="Artecon">
     </div>
-    <div class="sub">Mesa de Trabalho · Cobrança Pro <span style="font-size:11px;opacity:.7;">v2.14.0</span></div>
+    <div class="sub">Mesa de Trabalho · Cobrança Pro <span style="font-size:11px;opacity:.7;">v2.15.0</span></div>
     <div class="field">
       <label>E-mail</label>
       <input type="email" id="emailInput" placeholder="seu@email.com" autocomplete="email">
@@ -743,7 +744,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
       <div style="margin-top:6px;">
         <button class="sair" onclick="fazerLogout()"><span class="sair-label">Sair</span> ↩</button>
       </div>
-      <div style="margin-top:8px;font-size:10px;opacity:.5;letter-spacing:.04em;">v2.14.0 · 08/10/2026</div>
+      <div style="margin-top:8px;font-size:10px;opacity:.5;letter-spacing:.04em;">v2.15.0 · 09/10/2026</div>
     </div>
   </aside>
 
@@ -975,11 +976,15 @@ tr:hover td{background:rgba(255,255,255,.025)}
           </label>
           <button type="button" class="btn sm" onclick="v2130LimparFiltrosParc()">Limpar filtros</button>
           <button type="button" class="btn sm solid" onclick="v2130AbrirLancar()" style="margin-left:auto;">➕ Lançar boleto manual</button>
+          <!-- v2.15.0: alterar e excluir o boleto selecionado na lista -->
+          <button type="button" class="btn sm" id="v2150BtnAlterar" onclick="v2150AbrirAlterar()" disabled title="Selecione um boleto na lista">✏️ Alterar boleto</button>
+          <button type="button" class="btn sm danger" id="v2150BtnExcluir" onclick="v2150Excluir()" disabled title="Selecione um boleto na lista">🗑 Excluir boleto</button>
         </div>
         <div style="overflow-x:auto;">
           <table id="tabelaParcelas">
             <thead>
               <tr>
+                <th style="width:28px;" aria-label="Selecionar"></th>
                 <th>Cliente</th>
                 <th>Documento</th>
                 <th>Nosso número</th>
@@ -1000,7 +1005,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
     <div id="v2130ModalLancar" style="display:none;position:fixed;inset:0;background:rgba(15,30,45,.55);z-index:60;align-items:center;justify-content:center;padding:16px;" onclick="if(event.target===this)v2130FecharLancar()">
       <div role="dialog" aria-labelledby="v2130LancTit" style="background:#1E1B1F;border:1px solid var(--border2);border-radius:14px;padding:24px 26px;width:460px;max-width:100%;max-height:92vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);">
         <h3 id="v2130LancTit" style="margin-bottom:4px;">Lançar boleto manual</h3>
-        <div class="card-sub" style="margin-bottom:16px;">Para boleto emitido fora da remessa (.CRM). Entra como parcela em aberto e passa a ser cobrado e conferido no retorno e no confronto.</div>
+        <div class="card-sub" id="v2150LancSub" style="margin-bottom:16px;">Para boleto emitido fora da remessa (.CRM). Entra como parcela em aberto e passa a ser cobrado e conferido no retorno e no confronto.</div>
         <div style="margin-bottom:12px;">
           <label for="v2130LancCli">Cliente</label>
           <input type="text" id="v2130LancCli" list="v2130LancCliLista" placeholder="Digite o nome ou o CNPJ e escolha na lista" autocomplete="off">
@@ -1499,6 +1504,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
         <table>
           <thead><tr><th style="white-space:nowrap;">Versão</th><th style="white-space:nowrap;">Data</th><th>O que mudou</th></tr></thead>
           <tbody>
+            <tr><td><b>v2.15.0</b></td><td>09/10/2026</td><td><b>Alterar e excluir boleto em Conferir → Parcelas.</b> Ao lado de “Lançar boleto manual” ficam os botões <b>✏️ Alterar boleto</b> e <b>🗑 Excluir boleto</b>: marque o boleto na lista (nova coluna de seleção) e clique. Só para boletos <b>em aberto</b> e só para <b>diretor</b>. <b>Alterar</b> abre o mesmo formulário do lançamento já preenchido (cliente, documento, nosso número, valor e vencimento), confere duplicidade e grava no histórico o que mudou (antes e depois). <b>Excluir</b> pede confirmação e motivo; o boleto passa para <b>Cancelada</b> (exclusão lógica — pagamentos, envios e histórico ficam preservados) e sai da cobrança. Sem migration; robô sem mudança.</td></tr>
             <tr><td><b>v2.14.0</b></td><td>08/10/2026</td><td><b>Três níveis de cobrança, lançamento pelo relatório do Questor, clientes suspensos e versão no painel.</b> <b>Cobrança em 3 níveis</b> pelo maior atraso do cliente: <i>1º</i> até 29 dias — a cobrança de sempre; <i>2º</i> de 30 a 59 dias — aviso de que os serviços serão suspensos, com a data prevista (quando o atraso completar 60 dias); <i>3º</i> 60 dias ou mais — aviso de que os serviços estão suspensos. O nível muda o título, o assunto do e-mail, o texto e o cartão do WhatsApp; aparece como selo em cada cliente do Passo 3 e a confirmação do envio em lote mostra quantos de cada nível. <b>Confronto com o Questor</b>: boleto que está no relatório e não existe no app passa a ser <b>lançado automaticamente a partir do relatório</b> (com o aviso de quais foram lançados) e o confronto do dia é gravado de novo já com eles; na aba Erros, o último confronto (inclusive o do robô) tem o botão para lançar os títulos que só estão no Questor. <b>Clientes suspensos</b> (Relatórios → Boletos em aberto): lista dos clientes com 60 dias ou mais de atraso, com valor atual, com multa e juros e a data da suspensão, exportação CSV e <b>envio do relatório por e-mail</b> (somente para endereços @artecon.cnt.br). <b>Painel</b>: número da versão em uso ao lado do período. Sem migration; robô sem mudança.</td></tr>
             <tr><td><b>v2.13.0</b></td><td>08/10/2026</td><td><b>Busca de títulos, lançamento manual de boleto, relatórios em abas e período no painel.</b> <b>Parcelas</b> (Conferir): busca do título por documento ou nosso número, por <b>cliente</b> (nome ou CNPJ), por <b>faixa de valor</b> e por <b>período de vencimento</b>, com a soma do que foi encontrado; coluna de nosso número; filtro de renegociadas e canceladas. <b>Lançar boleto manual</b>: para boleto emitido fora da remessa — cliente, documento, nosso número (opcional), valor, vencimento e motivo; não aceita número repetido, entra como parcela em aberto (origem "manual", marcada na lista), fica reconhecível no retorno do banco e registrada no histórico do cliente. <b>Relatórios em abas</b>: <i>Boletos em aberto</i> (situação, período de vencimento e agora busca por título, cliente e valor, ordenação e gráficos por faixa de atraso, por mês de vencimento, maiores clientes e faixa de valor), <i>Envios de cobrança</i>, <i>Recebimentos</i> e <i>Visão geral e gráficos</i>; a última aba usada é lembrada. <b>Painel</b>: seletor de período (até hoje, este mês, mês passado, últimos 30/90 dias, este ano ou datas) — o padrão traz tudo até o dia atual; a carteira em atraso considera os vencidos do período, recuperado, novo atraso, taxa e atraso médio passam a ser do período e o gráfico acompanha as datas escolhidas. Sem migration; robô sem mudança.</td></tr>
             <tr><td><b>v2.12.0</b></td><td>06/10/2026</td><td><b>Painel com valor atual e com multa e juros; aba Erros; novos relatórios.</b> <b>Painel</b>: a carteira em atraso mostra lado a lado o <b>valor atual</b> (original dos títulos), o valor <b>com multa e juros</b> e a diferença (multa + juros, em R$ e %); a barra por tempo de atraso e a tabela dos maiores saldos também trazem o valor atual, a multa + juros e o total. <b>Aba Erros</b> (novo ícone no trilho): importações, falhas do robô/app e diferenças Questor × app, que antes ficavam em Relatórios. <b>Relatórios</b>: novo relatório de <b>envios de cobrança</b> — período, forma (e-mail/WhatsApp), situação (reais, teste, não entregues), para quem foi enviado (e o destinatário original quando em teste), separado por data, por cliente ou em lista, com gráfico de envios por dia, filtro por cliente/e-mail/telefone e CSV; novo relatório de <b>recebimentos</b> — total, recebido em atraso, multa e juros recebidos, ticket médio, gráfico por dia (no prazo × em atraso), por forma de recebimento e clientes que mais pagaram, com CSV. Os demais relatórios e gráficos (boletos em aberto, evolução mensal, envelhecimento, efetividade, promessas, maiores devedores, canais) continuam na aba. <b>Baixa manual</b>: nova opção <b>Renegociada (substituída por novos boletos)</b> para título dividido ou trocado no Questor — sai da cobrança sem lançar pagamento nem perdão, com os novos documentos no histórico; só diretor (o banco confere). Sem migration; robô sem mudança.</td></tr>
@@ -1568,7 +1574,7 @@ tr:hover td{background:rgba(255,255,255,.025)}
           <input type="date" id="v2130DashDe" onchange="carregarDashboard()" aria-label="De"><span class="sub">a</span>
           <input type="date" id="v2130DashAte" onchange="carregarDashboard()" aria-label="Até"></span>
         <span class="rot" id="v2130DashRot"></span>
-        <span class="v2140-ver" title="Versão do Cobrança Pro em uso">Cobrança Pro v2.14.0 · 08/10/2026</span>
+        <span class="v2140-ver" title="Versão do Cobrança Pro em uso">Cobrança Pro v2.15.0 · 09/10/2026</span>
       </div>
       <div class="v23-hero">
         <div class="card v23-cart">
@@ -6024,7 +6030,8 @@ function filtrarParcelas() {
 
   const tbody = document.querySelector('#tabelaParcelas tbody');
   if (filtradas.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:30px;">Nenhuma parcela encontrada.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:30px;">Nenhuma parcela encontrada.</td></tr>';
+    v2150Selecionar(null);
     return;
   }
 
@@ -6034,7 +6041,8 @@ function filtrarParcelas() {
     const st = STATUS_PARCELA[p.status] || { label: p.status, css: 'badge grey' };
     const idx = parcelasLista.indexOf(p);
     return `
-    <tr>
+    <tr class="${v2150Sel === p.id ? 'v2150-sel' : ''}">
+      <td><input type="radio" name="v2150Sel" aria-label="Selecionar ${autoEsc(p.documento)}" ${v2150Sel === p.id ? 'checked' : ''} onchange="v2150Selecionar(${idx})" style="width:auto;"></td>
       <td style="font-weight:600;">${autoEsc(p.razaoSocial)}</td>
       <td style="font-size:12px;">${autoEsc(p.documento)}${p.origem === 'manual' ? ' <span class="badge grey" title="Lançado manualmente">manual</span>' : ''}</td>
       <td style="font-size:12px;color:var(--muted);">${p.nossoNumero && p.nossoNumero !== p.documento ? autoEsc(p.nossoNumero) : '—'}</td>
@@ -6046,13 +6054,20 @@ function filtrarParcelas() {
         ? `<button class="btn sm" onclick="abrirModalBaixa(${idx})">💰 Dar baixa</button>` : ''}</td>
     </tr>`;
   }).join('') + (filtradas.length > 300
-    ? '<tr><td colspan="8" style="text-align:center;color:var(--muted);">… mostrando as primeiras 300. Refine a busca.</td></tr>' : '');
+    ? '<tr><td colspan="9" style="text-align:center;color:var(--muted);">… mostrando as primeiras 300. Refine a busca.</td></tr>' : '');
+  if (v2150Sel && !filtradas.slice(0, 300).some(p => p.id === v2150Sel)) v2150Selecionar(null);   // v2.15.0: seleção saiu do filtro
 }
 /* ── v2.13.0: lançamento manual de boleto (fora da remessa) ── */
 let v2130Clientes = null;
-async function v2130AbrirLancar() {
+var v2150Sel = null, v2150Edit = null;   // v2.15.0: parcela selecionada e parcela em alteração
+async function v2130AbrirLancar(edicao) {
+  v2150Edit = edicao || null;   // v2.15.0: a mesma janela serve para alterar
   ['v2130LancCli', 'v2130LancDoc', 'v2130LancNosso', 'v2130LancValor', 'v2130LancObs'].forEach(id => { document.getElementById(id).value = ''; });
   document.getElementById('v2130LancVenc').value = hojeLocal();
+  document.getElementById('v2130LancTit').textContent = v2150Edit ? 'Alterar boleto ' + v2150Edit.documento : 'Lançar boleto manual';
+  document.getElementById('v2150LancSub').textContent = v2150Edit ? 'Corrija os dados do boleto em aberto. A alteração fica registrada no histórico do cliente, com o valor de antes e o de depois. Só diretor.'
+    : 'Para boleto emitido fora da remessa (.CRM). Entra como parcela em aberto e passa a ser cobrado e conferido no retorno e no confronto.';
+  document.getElementById('v2130LancSalvar').textContent = v2150Edit ? 'Salvar alteração' : 'Lançar boleto';
   v2130LancErro('');
   document.getElementById('v2130ModalLancar').style.display = 'flex';
   if (MODO_TESTE) { v2130Clientes = [{ id: 'c1', razao_social: 'Cliente Teste Ltda', cnpj: '12345678000199' }]; }
@@ -6062,11 +6077,19 @@ async function v2130AbrirLancar() {
   }
   document.getElementById('v2130LancCliLista').innerHTML = v2130Clientes.slice().sort((a, b) => String(a.razao_social).localeCompare(String(b.razao_social), 'pt-BR'))
     .map(c => `<option value="${autoEsc(v2130RotCli(c))}"></option>`).join('');
+  if (v2150Edit) {   // v2.15.0: preenche com os dados atuais
+    const c = v2130Clientes.find(x => x.id === v2150Edit.clienteId);
+    document.getElementById('v2130LancCli').value = c ? v2130RotCli(c) : v2150Edit.razaoSocial;
+    document.getElementById('v2130LancDoc').value = v2150Edit.documento || '';
+    document.getElementById('v2130LancNosso').value = v2150Edit.nossoNumero && v2150Edit.nossoNumero !== v2150Edit.documento ? v2150Edit.nossoNumero : '';
+    document.getElementById('v2130LancValor').value = Number(v2150Edit.valor).toFixed(2);
+    document.getElementById('v2130LancVenc').value = v2150Edit.vencimento;
+  }
   document.getElementById('v2130LancCli').focus();
 }
 function v2130RotCli(c) { return (c.razao_social || '—') + (c.cnpj ? ' — ' + fmtCnpj(c.cnpj) : ''); }
 function v2130LancErro(msg) { const el = document.getElementById('v2130LancErro'); el.textContent = msg; el.style.display = msg ? 'block' : 'none'; }
-function v2130FecharLancar() { document.getElementById('v2130ModalLancar').style.display = 'none'; }
+function v2130FecharLancar() { document.getElementById('v2130ModalLancar').style.display = 'none'; v2150Edit = null; }
 async function v2130SalvarLancar() {
   const txt = document.getElementById('v2130LancCli').value.trim();
   const cli = (v2130Clientes || []).find(c => v2130RotCli(c) === txt)
@@ -6082,6 +6105,7 @@ async function v2130SalvarLancar() {
   if (!(valor > 0)) return v2130LancErro('Informe um valor maior que zero.');
   if (!/^\d{4}-\d{2}-\d{2}$/.test(venc)) return v2130LancErro('Informe o vencimento.');
   if (obs.length < 5) return v2130LancErro('Informe o motivo do lançamento (mínimo 5 caracteres).');
+  if (v2150Edit) return v2150SalvarAlteracao({ cli, doc, nosso, valor, venc, obs });   // v2.15.0
   if (!confirm(`Lançar o boleto ${doc} de ${cli.razao_social}\nValor R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} · vencimento ${autoFmtData(venc)}?`)) return;
   if (MODO_TESTE) { v2130FecharLancar(); mostrarToast('(teste) boleto lançado.'); return; }
   const btn = document.getElementById('v2130LancSalvar'); btn.disabled = true; v2130LancErro('');
@@ -6104,6 +6128,72 @@ async function v2130SalvarLancar() {
     mostrarToast(`✅ Boleto ${doc} lançado para ${cli.razao_social}.` + (eLeg || eEv ? ' (aviso: ' + ((eLeg || eEv).message) + ')' : ''));
   } catch (e) { v2130LancErro('Não foi lançado: ' + (e.message || e)); }
   finally { btn.disabled = false; }
+}
+/* ── v2.15.0: alterar e excluir o boleto selecionado ── */
+function v2150Selecionar(idx) {
+  const p = idx == null ? null : parcelasLista[idx];
+  v2150Sel = p ? p.id : null;
+  document.querySelectorAll('#tabelaParcelas tbody tr').forEach(tr => { const r = tr.querySelector('input[name="v2150Sel"]'); tr.classList.toggle('v2150-sel', !!(r && r.checked)); });
+  const aberto = !!(p && p.status === 'aberta');
+  const dica = !p ? 'Selecione um boleto na lista' : aberto ? '' : 'Só boletos em aberto podem ser alterados ou excluídos (este está: ' + ((STATUS_PARCELA[p.status] || {}).label || p.status) + ')';
+  ['v2150BtnAlterar', 'v2150BtnExcluir'].forEach(id => { const b = document.getElementById(id); if (b) { b.disabled = !aberto; b.title = dica; } });
+}
+function v2150Selecionada() {
+  const p = parcelasLista.find(x => x.id === v2150Sel);
+  if (!p) { mostrarToast('Selecione um boleto na lista.'); return null; }
+  if (p.status !== 'aberta') { mostrarToast('Só boletos em aberto podem ser alterados ou excluídos.'); return null; }
+  if (perfilAtual !== 'diretor') { mostrarToast('Alterar ou excluir boleto exige perfil diretor.'); return null; }
+  return p;
+}
+function v2150AbrirAlterar() { const p = v2150Selecionada(); if (p) v2130AbrirLancar({ ...p }); }
+async function v2150SalvarAlteracao({ cli, doc, nosso, valor, venc, obs }) {
+  const a = v2150Edit, depois = { cliente_id: cli.id, documento: doc, nosso_numero: nosso, valor_original: valor, data_vencimento: venc };
+  const antes = { cliente_id: a.clienteId, documento: a.documento, nosso_numero: a.nossoNumero, valor_original: Number(a.valor), data_vencimento: a.vencimento };
+  const mudou = Object.keys(depois).filter(k => String(depois[k]) !== String(antes[k]));
+  if (!mudou.length) return v2130LancErro('Nada foi alterado.');
+  const ROT = { cliente_id: 'cliente', documento: 'documento', nosso_numero: 'nosso número', valor_original: 'valor', data_vencimento: 'vencimento' };
+  if (!confirm(`Alterar o boleto ${a.documento} (${a.razaoSocial})?\n\nMuda: ${mudou.map(k => ROT[k]).join(', ')}.\nMotivo: ${obs}`)) return;
+  if (MODO_TESTE) { v2130FecharLancar(); mostrarToast('(teste) boleto alterado.'); return; }
+  const btn = document.getElementById('v2130LancSalvar'); btn.disabled = true; v2130LancErro('');
+  try {
+    if (mudou.includes('documento') || mudou.includes('nosso_numero')) {   // número novo não pode existir em outro boleto
+      const { data: dup, error: eDup } = await supabaseClient.from('cob_parcelas').select('id, documento, nosso_numero')
+        .eq('tenant_id', tenantIdAtual).neq('id', a.id).or(`nosso_numero.eq.${nosso},documento.eq.${doc},nosso_numero.eq.${doc}`).limit(1);
+      if (eDup) throw eDup;
+      if (dup && dup.length) throw new Error(`o número ${dup[0].documento || dup[0].nosso_numero} já existe em outro boleto do app.`);
+    }
+    const alt = {}; mudou.forEach(k => { alt[k] = depois[k]; });
+    // o gatilho do banco só deixa o diretor mudar o valor; .eq('status','aberta') evita alterar boleto que foi pago nesse meio-tempo
+    const { data, error } = await supabaseClient.from('cob_parcelas').update(alt).eq('tenant_id', tenantIdAtual).eq('id', a.id).eq('status', 'aberta').select('id');
+    if (error) throw error;
+    if (!data || !data.length) throw new Error('o boleto não está mais em aberto (atualize a lista).');
+    if (mudou.includes('nosso_numero') || mudou.includes('cliente_id'))   // o retorno do banco reconhece o boleto pelo nosso número
+      await supabaseClient.from('cob_clientes_codigos_legados').upsert({ tenant_id: tenantIdAtual, cliente_id: cli.id, nosso_numero: nosso }, { onConflict: 'tenant_id,nosso_numero' });
+    const { error: eEv } = await supabaseClient.from('cob_eventos').insert({ tenant_id: tenantIdAtual, cliente_id: cli.id, parcela_id: a.id, tipo: 'parcela_alterada',
+      detalhe: { motivo: obs, campos: mudou, antes, depois } });
+    v2130FecharLancar(); v2150Edit = null;
+    await carregarParcelas();
+    mostrarToast(`✅ Boleto ${doc} alterado (${mudou.map(k => ROT[k]).join(', ')}).` + (eEv ? ' (o registro no histórico falhou: ' + eEv.message + ')' : ''));
+  } catch (e) { v2130LancErro('Não foi alterado: ' + (e.message || e)); }
+  finally { btn.disabled = false; }
+}
+async function v2150Excluir() {
+  const p = v2150Selecionada(); if (!p) return;
+  if (!confirm(`Excluir o boleto ${p.documento} de ${p.razaoSocial}?\nValor R$ ${Number(p.valor).toLocaleString('pt-BR', { minimumFractionDigits: 2 })} · vencimento ${autoFmtData(p.vencimento)}\n\nEle sai da cobrança, dos totais e dos relatórios (fica como "Cancelada" no histórico).`)) return;
+  const motivo = (prompt('Motivo da exclusão (obrigatório):', '') || '').trim();
+  if (motivo.length < 5) { mostrarToast('Motivo obrigatório (mínimo 5 caracteres) — nada foi excluído.'); return; }
+  if (MODO_TESTE) { p.status = 'cancelada'; filtrarParcelas(); mostrarToast('(teste) boleto excluído.'); return; }
+  try {
+    // exclusão lógica: a parcela vira "cancelada" (pagamentos, eventos e retorno continuam apontando para ela; o histórico não se perde)
+    const { data, error } = await supabaseClient.from('cob_parcelas').update({ status: 'cancelada' }).eq('tenant_id', tenantIdAtual).eq('id', p.id).eq('status', 'aberta').select('id');
+    if (error) throw error;
+    if (!data || !data.length) throw new Error('o boleto não está mais em aberto (atualize a lista).');
+    const { error: eEv } = await supabaseClient.from('cob_eventos').insert({ tenant_id: tenantIdAtual, cliente_id: p.clienteId || null, parcela_id: p.id, tipo: 'parcela_excluida',
+      detalhe: { motivo, documento: p.documento, nosso_numero: p.nossoNumero, valor: p.valor, vencimento: p.vencimento } });
+    v2150Sel = null;
+    await carregarParcelas();
+    mostrarToast(`✅ Boleto ${p.documento} excluído (cancelado).` + (eEv ? ' (o registro no histórico falhou: ' + eEv.message + ')' : ''));
+  } catch (e) { mostrarToast('Não foi excluído: ' + (e.message || e)); }
 }
 function v2130LimparFiltrosParc() {   // v2.13.0
   ['parcelasBusca', 'v2130ParcCliente', 'v2130ParcVmin', 'v2130ParcVmax', 'v2130ParcDe', 'v2130ParcAte'].forEach(id => { document.getElementById(id).value = ''; });
@@ -6296,6 +6386,10 @@ const TL_ROTULOS = {
   email_simulado:  { titulo: '🧪 E-mail simulado',       css: ''     },
   whatsapp_enviado:{ titulo: '💬 WhatsApp enviado',      css: 'ok'   },
   baixa_manual:    { titulo: '💰 Baixa manual',          css: 'ok'   },
+  parcela_lancada_manual: { titulo: '➕ Boleto lançado manualmente', css: 'info' },   // v2.13.0
+  parcela_alterada: { titulo: '✏️ Boleto alterado',      css: 'warn' },   // v2.15.0
+  parcela_excluida: { titulo: '🗑 Boleto excluído',      css: 'err'  },   // v2.15.0
+  parcela_renegociada: { titulo: '🔁 Boleto renegociado', css: 'info' },   // v2.12.0
   baixa_recebimentos: { titulo: '💰 Baixa pelo Questor (caixa/PIX)', css: 'ok' },   // v2.9.0
   baixa_retorno:   { titulo: '🏦 Baixa pelo retorno do banco', css: 'ok' },
   disparo_ignorado:{ titulo: '🔕 Disparo ignorado',      css: ''     },
