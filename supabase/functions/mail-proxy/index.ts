@@ -85,7 +85,7 @@ Deno.serve(async (req) => {
     if (!destinos.length || destinos.length > MAX_DESTINOS || destinos.some((d: string) => !EMAIL_OK.test(d))) {
       return resposta({ ok: false, erro: "destinatário inválido" }, 400);
     }
-    if (typeof p.assunto !== "string" || !p.assunto.trim() || p.assunto.length > 200) {
+    if (typeof p.assunto !== "string" || !p.assunto.trim() || p.assunto.length > 600) {
       return resposta({ ok: false, erro: "assunto inválido" }, 400);
     }
     if (typeof p.html !== "string" || !p.html || p.html.length > MAX_HTML) {

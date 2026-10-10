@@ -34,7 +34,11 @@ begin
   end if;
   if new.nosso_numero is distinct from old.nosso_numero or new.documento is distinct from old.documento then
     -- remessa (.CRM): a parcela lançada antes pelo documento recebe o nosso número do banco (v2.1.4)
-    if not (old.status = 'aberta' and new.documento = old.nosso_numero) then
+    -- (só parcela de confronto/manual, em que documento = nosso número; coalesce: NULL nunca libera)
+    if not coalesce(old.status = 'aberta'
+                    and old.documento is not distinct from old.nosso_numero
+                    and new.documento = old.nosso_numero
+                    and new.nosso_numero is not null, false) then
       raise exception 'Alterar documento ou nosso número de parcela é permitido só ao diretor.' using errcode = '42501';
     end if;
   end if;
@@ -79,7 +83,8 @@ create policy cob_whatsapp_fila_ins on public.cob_whatsapp_fila for insert to au
     and public.cob_whats_destino_ok(tenant_id, cliente_id, telefone, teste)
   );
 
--- depois de enfileirada: telefone, mensagem, cliente, empresa e "teste" não mudam (o robô só atualiza status)
+-- depois de enfileirada: destino, conteúdo e validade não mudam (o robô só atualiza status/erro/tentativas);
+-- mensagem já enviada, cancelada ou expirada não volta para "pendente" (seria reenviada)
 create or replace function public.cob__trava_whats_fila()
 returns trigger language plpgsql
 set search_path = public, pg_temp as $$
@@ -87,8 +92,13 @@ begin
   if current_user not in ('anon', 'authenticated') then return new; end if;
   if new.telefone is distinct from old.telefone or new.mensagem is distinct from old.mensagem
      or new.cliente_id is distinct from old.cliente_id or new.tenant_id is distinct from old.tenant_id
-     or new.teste is distinct from old.teste or new.contexto is distinct from old.contexto then
+     or new.teste is distinct from old.teste or new.contexto is distinct from old.contexto
+     or new.valido_ate is distinct from old.valido_ate or new.destinatario_original is distinct from old.destinatario_original
+     or new.criado_por is distinct from old.criado_por or new.criado_em is distinct from old.criado_em then
     raise exception 'Mensagem da fila do WhatsApp não pode ser alterada depois de enfileirada (cancele e gere outra).' using errcode = '42501';
+  end if;
+  if new.status in ('pendente', 'enviando') and old.status in ('enviado', 'cancelado', 'expirado') then
+    raise exception 'Mensagem % não pode voltar para a fila (gere outra).', old.status using errcode = '42501';
   end if;
   return new;
 end $$;
@@ -125,6 +135,22 @@ begin
   returning id into v_id;
   return v_id;
 end $$;
+
+-- as funções do retorno, do confronto e dos recebimentos também gravam execução com p_origem:
+-- quem não é o robô fica sempre como "app" (vale para qualquer caminho, inclusive SECURITY DEFINER)
+create or replace function public.cob__origem_execucao()
+returns trigger language plpgsql
+set search_path = public, pg_temp as $$
+begin
+  if new.origem = 'robo' and auth.uid() is not null and not public.cob_eh_robo(new.tenant_id) then
+    new.origem := 'app';
+  end if;
+  return new;
+end $$;
+
+drop trigger if exists cob_origem_execucao on public.cob_automacao_execucoes;
+create trigger cob_origem_execucao before insert or update of origem on public.cob_automacao_execucoes
+  for each row execute function public.cob__origem_execucao();
 
 -- ── 4) search_path fixo ─────────────────────────────────────
 alter function public.cob_chave_doc set search_path = public, pg_temp;

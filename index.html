@@ -5557,7 +5557,7 @@ async function dataImportarRemessa(itens, nomeArquivo, onProgresso, origem) {
     const docs = [...new Set(parcelas.map(p => p.documento).filter(Boolean))];
     for (let i = 0; i < docs.length; i += 200) {
       const { data: legadas, error: eL } = await supabaseClient.from('cob_parcelas')
-        .select('id, nosso_numero, documento, data_vencimento').eq('tenant_id', tenantIdAtual)
+        .select('id, nosso_numero, documento, data_vencimento').eq('tenant_id', tenantIdAtual).eq('status', 'aberta')   // v2.17.0: só em aberto (o banco recusa trocar o número de parcela já baixada)
         .in('nosso_numero', docs.slice(i, i + 200));
       if (eL) throw eL;
       for (const l of (legadas || [])) {
@@ -8630,7 +8630,7 @@ function renderizarDisparos() {
 async function salvarEmailCliente(index) {
   const d = filaDisparosAtual[index];
   const input = document.getElementById('email-input-' + index);
-  const email = input?.value.trim();
+  const email = (input?.value || '').trim().toLowerCase();   // v2.17.0: o servidor de e-mail confere o destinatário em minúsculas
   if (!email || !email.includes('@')) { mostrarToast('E-mail inválido.'); return; }
 
   if (MODO_TESTE) {
