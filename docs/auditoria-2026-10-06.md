@@ -45,3 +45,13 @@ Escopo: `index.html` inteiro (3 revisões independentes: segurança, lógica par
 | 10 | CSP (Content-Security-Policy) | Camada extra contra XSS | `<meta http-equiv="Content-Security-Policy">` após mapear os domínios usados |
 
 Itens 2–7 são mudanças de banco/servidor: preparo as migrations quando você aprovar.
+
+### Atualização 10/10/2026 — v2.17.0 (etapa A preparada)
+| Item | Situação |
+|---|---|
+| 2 mail-proxy | **Pronto** em `supabase/functions/mail-proxy/index.ts` (v2): só envia para e-mail de cliente cadastrado, e-mail de teste, o próprio usuário ou @artecon.cnt.br. Falta publicar a função. |
+| 3 fila do WhatsApp | **Pronto** na `migration_v2_17_0_seguranca_etapa_a.sql`: telefone 10–13 dígitos, só contato ativo do cliente (ou número de teste) e mensagem congelada depois de enfileirada. |
+| 4 execuções do robô | **Pronto** na migration: "robo" só pelo usuário do robô (`cob_eh_robo`). |
+| 5 diretor no banco | Parcelas: cliente/vencimento/documento/nosso número só diretor (gatilho `cob_trava_parcela_campos`). Pagamentos, exclusões e Configurações já eram só diretor; cancelar fila do WhatsApp continua liberado ao operador (só muda status). |
+| 6 senha vazada | Continua com o usuário (1 clique no painel do Supabase). |
+| 7 search_path | **Pronto** na migration para as 3 funções `cob_*` (`prop_ct_toca` é do projeto Propostas). |

@@ -1,11 +1,12 @@
 # Cobrança Pro — onde paramos e o que falta fazer
 
-**Data:** 06/10/2026 · **Atualizado em 08/10/2026** · **Versão no ar:** v2.15.0 (v2.16.0 pronta para publicar)
+**Data:** 06/10/2026 · **Atualizado em 08/10/2026** · **Versão no ar:** v2.16.0 (v2.17.0 pronta para publicar)
 
 > **08/10/2026 — v2.13.0 publicada:** busca de títulos em Parcelas (título, cliente, valor, vencimento), lançamento manual de boleto, relatórios em abas (Boletos em aberto com busca e gráficos, Envios de cobrança, Recebimentos, Visão geral) e seletor de período no Painel (padrão até hoje).
 > **08/10/2026 (noite) — v2.14.0 publicada** (3 níveis de cobrança, lançamento pelo relatório do Questor, clientes suspensos, versão no Painel), com varredura e 4 correções antes do merge. **Textos dos avisos de suspensão (2º e 3º nível) aprovados pelo usuário.**
 > **09/10/2026 — v2.15.0:** Conferir → Parcelas ganhou **Alterar boleto** e **Excluir boleto** (só diretor, só boletos em aberto; excluir vira "Cancelada", com motivo e histórico).
 > **09/10/2026 — v2.16.0:** avisos de suspensão (2º e 3º nível) agora precisam ser **liberados em Configurações** — começam bloqueados até o texto ser revisado. Rodar `migration_v2_16_0_niveis_cobranca.sql`.
+> **10/10/2026 — v2.17.0 (segurança, etapa A):** travas no banco e na função de e-mail preparadas — falta rodar `migration_v2_17_0_seguranca_etapa_a.sql` (e a da v2.16.0) e publicar `supabase/functions/mail-proxy`.
 > **Robô:** recebidos só `questor.py` v0.2.4 e `sicredi.py` v0.1.1 (antigos). Para corrigir a data do relatório de pendentes falta o `questor.py` v0.6.0 e o `robo_cobranca.py` v2.6.0 que rodam no ARTEDB01.
 > **Pendente:** a tabela de classificação de clientes (para ligar com o projeto Propostas) não chegou — reenviar.
 
@@ -69,7 +70,7 @@
 | # | Tarefa | Precisa de |
 |---|---|---|
 | B1 | Ligar a **proteção contra senha vazada** no Supabase (Authentication → Passwords) | Usuário, 1 clique |
-| B2 | Travas no banco: e-mail e WhatsApp só para contatos cadastrados; registros do robô só pelo robô; ações de diretor garantidas pelo banco; auditoria sem edição (**etapa A**) | Aprovar a migration |
+| B2 | **(v2.17.0 — preparado, falta rodar)** Travas no banco: e-mail e WhatsApp só para contatos cadastrados; registros do robô só pelo robô; ações de diretor garantidas pelo banco; auditoria sem edição (**etapa A**) | Aprovar a migration |
 | B3 | Verificação em duas etapas no login do app (**etapa B**) | Aprovar; cada usuário cadastra o celular |
 | B4 | Aprovação dupla em baixa manual, perdão e renegociação (**etapa C**) | Definir quem aprova |
 | B5 | Conferir a chave PIX antes do envio e checar SPF/DKIM/DMARC do domínio artecon.cnt.br (**etapa D**) | Acesso ao DNS, se precisar corrigir |

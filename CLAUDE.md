@@ -31,3 +31,4 @@ App de cobrança da **Artecon** (escritório contábil). Tudo em português.
 - Modo de teste (`cob_politicas.teste_*`): em dúvida, **bloquear envio** — nunca tratar erro como "teste desligado".
 - Todo dado do banco/arquivo que vai para `innerHTML` passa por `autoEsc`; nada de dado em `onclick="…'${x}'…"` sem `autoEsc(JSON.stringify(x))`.
 - CSV exportado passa por `csvSeguro`.
+- Segurança no banco (v2.17.0): parcela só muda cliente/vencimento/documento/nosso número por diretor ou robô (`cob_trava_parcela_campos`); fila do WhatsApp só aceita telefone ativo do cliente ou o de teste e não deixa trocar mensagem; execução "robo" só pelo usuário do robô (`cob_eh_robo`). Fonte da função de e-mail em `supabase/functions/mail-proxy/` — só envia para destinatário conhecido (cliente, teste, o próprio usuário, @artecon.cnt.br).
