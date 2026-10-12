@@ -7,6 +7,7 @@
 > **09/10/2026 — v2.15.0:** Conferir → Parcelas ganhou **Alterar boleto** e **Excluir boleto** (só diretor, só boletos em aberto; excluir vira "Cancelada", com motivo e histórico).
 > **09/10/2026 — v2.16.0:** avisos de suspensão (2º e 3º nível) agora precisam ser **liberados em Configurações** — começam bloqueados até o texto ser revisado. Rodar `migration_v2_16_0_niveis_cobranca.sql`.
 > **12/10/2026 — v2.17.0 (segurança, etapa A) aplicada:** migrations v2.16.0 e v2.17.0 rodadas no banco, função mail-proxy v2 publicada e site publicado. Travas testadas com operador, robô e diretor (tudo desfeito após o teste).
+> **12/10/2026 — plano de grupos do portal:** Cobrança Pro + Propostas já dividem o banco `cobranca-pro` (grupo Contábil e Financeiro); falta o Financeiro Pro (hoje no banco do Agenda). Ordem combinada: (1) backup externo do banco `cobranca-pro` — script em `artecon-supabase/backup/` (instalar no ARTEDB01 e fazer o ensaio de restauração); (2) levar o Financeiro Pro para o grupo; (3) login único Portal → aplicativos; (4) verificação em 2 etapas **por e-mail ou WhatsApp** (sem aplicativo autenticador).
 > **Robô:** recebidos só `questor.py` v0.2.4 e `sicredi.py` v0.1.1 (antigos). Para corrigir a data do relatório de pendentes falta o `questor.py` v0.6.0 e o `robo_cobranca.py` v2.6.0 que rodam no ARTEDB01.
 > **Pendente:** a tabela de classificação de clientes (para ligar com o projeto Propostas) não chegou — reenviar.
 
