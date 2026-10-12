@@ -46,10 +46,10 @@ Escopo: `index.html` inteiro (3 revisões independentes: segurança, lógica par
 
 Itens 2–7 são mudanças de banco/servidor: preparo as migrations quando você aprovar.
 
-### Atualização 10/10/2026 — v2.17.0 (etapa A preparada)
+### Atualização 10/10/2026 — v2.17.0 (etapa A) — **aplicada em 12/10/2026**
 | Item | Situação |
 |---|---|
-| 2 mail-proxy | **Pronto** em `supabase/functions/mail-proxy/index.ts` (v2): só envia para e-mail de cliente cadastrado, e-mail de teste, o próprio usuário ou @artecon.cnt.br. Falta publicar a função. |
+| 2 mail-proxy | **Pronto** em `supabase/functions/mail-proxy/index.ts` (v2): só envia para e-mail de cliente cadastrado, e-mail de teste, o próprio usuário ou @artecon.cnt.br. Publicada (versão 6 da função). |
 | 3 fila do WhatsApp | **Pronto** na `migration_v2_17_0_seguranca_etapa_a.sql`: telefone 10–13 dígitos, só contato ativo do cliente (ou número de teste) e mensagem congelada depois de enfileirada. |
 | 4 execuções do robô | **Pronto** na migration: "robo" só pelo usuário do robô (`cob_eh_robo`). |
 | 5 diretor no banco | Parcelas: cliente/vencimento/documento/nosso número só diretor (gatilho `cob_trava_parcela_campos`). Pagamentos, exclusões e Configurações já eram só diretor; cancelar fila do WhatsApp continua liberado ao operador (só muda status). |
