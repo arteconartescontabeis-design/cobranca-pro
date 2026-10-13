@@ -18,7 +18,7 @@ App de cobrança da **Artecon** (escritório contábil). Tudo em português.
 - Servidor **ARTEDB01**, tarefa agendada "Artecon Robo Cobranca", Python 3.10, log em `C:\Artecon\Robo\logs`, pastas `C:\Artecon\Cobranca\{entrada,processados,relatorios}`.
 - Vigia (`--loop`) sempre aberto + ciclo em processo separado; agenda 08:00 e 20:00; lê pedidos do app (`cob_automacao_config.pedido`) a cada minuto; grava sinal em `robo_sinal`/`robo_sinal_em` e etapas em `cob_automacao_execucoes`.
 - **Clique na janela do vigia congela o robô** (modo "Selecionar" do console do Windows) — aperte Esc; desmarcar "Modo de Edição Rápida".
-- Bug aberto (06/10/2026): etapa "pendentes" recusa o relatório porque o campo "data base juros" do Questor mostra o ano com 2 dígitos (`06/10/20`) → sem CSV, sem confronto, disparos não liberados. Corrigir no `questor.py`.
+- Bug de 06/10/2026 (etapa "pendentes" recusava o campo "data base juros" com ano de 2 dígitos, `06/10/20` → sem CSV, sem confronto, disparos não liberados): **corrigido no `questor.py` v0.6.4 (13/10/2026)** — aceita dd/mm/aa ou dd/mm/aaaa, digita no formato do campo e compara a data completa. Pacote `cobranca-pro-robo-questor-v0.6.4.zip` entregue ao usuário; **instalação no ARTEDB01 pendente** (teste: `python robo_cobranca.py --pendentes DD/MM/AAAA`).
 
 ## Sicredi (API Cobrança)
 - Base `https://api-parceiro.sicredi.com.br` (sandbox com `/sb`). OAuth2 password em `/auth/openapi/token` com `x-api-key` + `context: COBRANCA`; chamadas com `Authorization: Bearer`, `x-api-key`, `cooperativa`, `posto`.
