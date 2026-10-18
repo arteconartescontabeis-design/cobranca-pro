@@ -1,3 +1,7 @@
+> **Repositório antigo (18/10/2026):** o app mudou para o repositório `gestao-financeiro` (pasta `cobranca-pro/`, endereço
+> https://arteconartescontabeis-design.github.io/gestao-financeiro/cobranca-pro/). Aqui ficaram só os avisos de mudança de endereço e o logo dos e-mails já enviados.
+> Não desenvolver mais aqui.
+
 # Cobrança Pro — memória do projeto
 
 App de cobrança da **Artecon** (escritório contábil). Tudo em português.
